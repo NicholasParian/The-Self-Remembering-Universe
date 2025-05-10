@@ -1,0 +1,85 @@
+\section{Forecasting and Simulation Framework}
+\label{sec:forecasting}
+
+This section outlines a concrete methodology for simulating the recursive quantum cosmology model and generating observational forecasts. It connects the core kernel–attractor formalism to measurable signatures in the cosmic microwave background (CMB), gravitational wave (GW) spectrum, and large-scale structure (LSS). The goal is to enable empirical tests of the recursive memory framework.
+
+\subsection{15.1 Kernel Parameter Mapping to Observables}
+
+Each component of the transition kernel \( K(\phi, \phi') \) modulates a specific class of observables. The following mapping defines explicit model-to-data correspondences:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Kernel Parameter} & \textbf{Model Quantity} & \textbf{Observable} \\
+\midrule
+\( \sigma_\varphi \) & Field coherence width & CMB non-Gaussianity \( f_{\text{NL}} \) \\
+\( \sigma_E \) & Entanglement filtering width & EB-mode polarization alignment \\
+\( j_0 \) & Dominant spin scale & GW spectral dips at \( f_j \sim \sqrt{j(j+1)} / 2\pi \ell_{\text{Pl}} \) \\
+\( \lambda_n \) & Cycle-to-cycle fidelity & CMB power suppression at low \( \ell \) \\
+\( \tau_M \sim E \) & Memory delay scale & GW burst time delay from tension collapse \\
+\bottomrule
+\end{tabular}
+\caption{Mapping of kernel parameters to observable cosmological signatures.}
+\end{table}
+
+\subsection{15.2 Numerical Simulation Strategy}
+
+Numerical evolution of the recursive state \( \Psi_n(\phi) \) and its convergence toward the attractor \( \Psi^*(\phi) \) follows the algorithmic structure detailed in Appendix~\ref{appendix:C5}. The simulation workflow includes:
+
+\begin{itemize}
+    \item \textbf{Crank–Nicolson evolution} of the minisuperspace Hamiltonian for \( a_n \), \( \varphi_n \), and memory-filtered wavefunction propagation.
+    \item \textbf{Spin-sum Monte Carlo} sampling over boundary configurations near dominant spin scale \( j_0 \), modulated by Gaussian filtering.
+    \item \textbf{Finite-memory kernel convolution} for evaluating the decoherence function \( D(\tau, E) \), with entropy-aware adaptive windowing.
+    \item \textbf{Attractor tracking}, logging convergence diagnostics:
+    \[
+    \mathcal{L}_n := \log \left( \frac{\|\Psi_{n+1} - \Psi_n\|}{\|\Psi_n - \Psi_{n-1}\|} \right), \quad \lambda_n := |\langle \Psi_n | \Psi_{n-1} \rangle|^2
+    \]
+    \item \textbf{Phase-space sampling} using priors over \( \phi \), bounded by entropy and tension constraints.
+\end{itemize}
+
+\subsection{15.3 Likelihood Function Templates}
+
+To translate kernel dynamics into observational constraints, we define model likelihoods as follows:
+
+\paragraph{(1) CMB Power Suppression Likelihood:}
+\[
+\mathcal{L}_{\text{CMB}}(\theta) = \prod_{\ell < 30} \frac{1}{\sqrt{2\pi \sigma_\ell^2}} \exp\left[ -\frac{(C_\ell^{\text{obs}} - C_\ell^{\text{rec}}(\theta))^2}{2\sigma_\ell^2} \right]
+\]
+
+\paragraph{(2) Gravitational Wave Spectrum Likelihood:}
+\[
+\mathcal{L}_{\text{GW}}(j_0) = \prod_j \exp\left[ -\frac{(\Omega_{\text{GW}}^{\text{obs}}(f_j) - \Omega_{\text{GW}}^{\text{rec}}(f_j))^2}{2\sigma_j^2} \right]
+\]
+
+\paragraph{(3) EB-Mode Cross-Correlation Likelihood:}
+\[
+\mathcal{L}_{\text{EB}}(\sigma_E) = \prod_{\ell} \exp\left[ -\frac{(C_\ell^{EB,\text{obs}} - C_\ell^{EB,\text{rec}})^2}{2\sigma_\ell^2} \right]
+\]
+
+These likelihoods enable inference on \( \lambda_n \), \( \sigma_E \), \( j_0 \), and \( \sigma_\varphi \) using standard sampling methods (e.g., MCMC, nested sampling) via tools such as \texttt{Cobaya}, \texttt{PolyChord}, or \texttt{emcee}.
+
+\subsection{15.4 Forecast Prioritization}
+
+The following observational signatures provide the most direct paths to falsifiability:
+
+\begin{itemize}
+    \item \textbf{CMB low-\( \ell \) suppression:} Resulting from field-space damping due to low \( \lambda_n \); measurable in Planck and LiteBIRD data.
+    \item \textbf{Quantized dips in the SGWB:} Spin-interference nulls near \( f_j \sim \sqrt{j(j+1)}/2\pi \ell_{\text{Pl}} \); testable via LISA and DECIGO.
+    \item \textbf{Non-Gaussianity scaling:} Recursive \( f_{\text{NL}}^{\text{rec}} \) with coherence-dependent shape; detectable by CMB-S4.
+    \item \textbf{Void-aligned EB polarization:} Emerging from residual entanglement geometry; testable via Euclid and SKA weak-lensing stacks.
+    \item \textbf{Delayed GW bursts:} Predicted tension-collapse transients with frequency \( f \sim 1/\tau_M \); testable by PTA timing and LISA.
+\end{itemize}
+
+\subsection{15.5 Code and Simulation Release Plan}
+
+We plan to release a companion codebase including:
+
+\begin{itemize}
+    \item Recursive kernel and attractor simulation library (Python and Julia)
+    \item Spin foam sampling engine for gravitational wave feature extraction
+    \item CMB pipeline with \texttt{CAMB} or \texttt{CLASS} integration
+    \item Full likelihood interface for parameter inference and forecasting
+\end{itemize}
+
+This platform will support direct comparisons between theoretical predictions and upcoming data from \textbf{LiteBIRD}, \textbf{CMB-S4}, \textbf{LISA}, and \textbf{Euclid}, and will provide a concrete test of the recursive cosmological paradigm.

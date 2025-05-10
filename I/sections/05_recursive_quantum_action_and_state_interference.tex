@@ -1,0 +1,83 @@
+\section{Attractor Dynamics, Recursive Interference, and Entropy Flow}
+\label{sec:recursive-variational}
+
+The evolution of the universe across cycles is governed not only by local dynamics, but by quantum interference between configuration states. These transitions are constrained by entanglement structure, entropy divergence, and recursive memory fidelity. We formalize this using a recursive action principle and define a stable attractor \( \Psi^*(\phi) \) governing long-term coherence.
+
+\subsection{Recursive Configuration and Action}
+\label{subsec:recursive-action}
+
+We define the full cosmological configuration as:
+\[
+\phi = (a, \varphi, \lambda, E),
+\]
+where \( a \) is the scale factor, \( \varphi \) the scalar field value, \( \lambda \) the cycle-to-cycle coherence fidelity, and \( E = \sqrt{-\mathrm{Tr}(\rho_{\text{red}} \log \rho_{\text{red}})} \) the entanglement eigenvalue across the Einstein--Rosen bridge.
+
+The recursive action governing evolution is:
+\begin{equation}
+\mathcal{A}_n = \sum_{k=1}^n \left[ \mathcal{A}_{\text{EH}}[\phi_k] + \lambda_E D(\tau_k, E) - \gamma S(\rho_{\phi_k} \| \rho_{\phi_{k-1}}) \right],
+\end{equation}
+as detailed in Appendix~\ref{appendix:C6}, where:
+\begin{itemize}
+    \item \( \mathcal{A}_{\text{EH}} \): Einstein–Hilbert gravitational action per cycle,
+    \item \( D(\tau_k, E) \): non-Markovian memory kernel,
+    \item \( S(\rho_k \| \rho_{k-1}) \): quantum relative entropy measuring information loss.
+\end{itemize}
+
+\subsection{Recursive Interference and Attractor Definition}
+\label{subsec:attractor}
+
+State evolution follows the kernel-mediated recursion:
+\[
+\Psi_{n+1}(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi_n(\phi') \, d\phi',
+\]
+where \( K_{\text{norm}} \) is the normalized transition kernel (see Section~\ref{sec:kernel}, Eq.~4.1). The attractor \( \Psi^*(\phi) \) is defined as the unique fixed point:
+\[
+\Psi^*(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi^*(\phi') \, d\phi',
+\]
+and exists by the contraction mapping theorem (Appendix~\ref{appendix:C9}).
+
+The attractor also minimizes a coherence-weighted entropy functional:
+\[
+\Psi^* = \arg\min_{\Psi} \left\{ \lambda_S S(\rho_\Psi) + \lambda_T \lambda^2 - \lambda_C |\langle \Psi | \Psi_{n-1} \rangle|^2 \right\},
+\]
+subject to normalization \( \langle \Psi | \Psi \rangle = 1 \), as derived in Appendix~\ref{appendix:C7}. This structure balances disorder, memory strain, and fidelity with past cycles.
+
+\subsection{Entropy–Tension Compensation and Collapse Thresholds}
+\label{subsec:entropy-dynamics}
+
+Recursive evolution obeys an entropy–tension balance constraint:
+\[
+\frac{dS_n}{dn} \sim -\frac{d\lambda_n}{dn},
+\]
+where entropy loss from coherence sharpening is offset by tension increase. Radiative backreaction maintains thermodynamic consistency:
+\[
+\frac{dS_{\text{net}}}{dn} = \frac{dS_{\text{rad}}}{dn} - \frac{d\lambda_n}{dn} \approx 0,
+\]
+as formalized in Appendix~\ref{appendix:C8}. When coherence tension exceeds a critical threshold \( \lambda_n > \lambda_{\text{crit}} \), recursive failure occurs, interpreted as supernova-like collapse.
+
+\subsection{Observable Consequences of the Attractor}
+\label{subsec:observables}
+
+The attractor structure and filtering kernel produce several falsifiable predictions:
+
+\paragraph{CMB Power Suppression:}
+\[
+C_\ell^{\text{rec}} \propto \exp\left[-\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}\right] \cdot \cos^2(\Delta \theta),
+\]
+where \( \sigma_\varphi \) is the coherence width and \( \Delta \theta \) is the recursive interference phase.
+
+\paragraph{Gravitational Wave Echoes:}
+\[
+f_j \sim \frac{1}{\tau_M} \cdot e^{-j \Delta}, \quad j \in \mathbb{Z}^+,
+\]
+arising from boundary-induced memory delays, where \( \tau_M \) is the coherence memory window.
+
+\paragraph{Entropy Bound Enforcement:}
+\[
+S(\rho_\phi \| \rho_{\phi'}) < \frac{A(\phi)}{4G} \quad \text{if } E > E_{\text{crit}},
+\]
+enforcing bounded divergence when entanglement exceeds the propagation threshold.
+
+\subsection{Summary}
+
+This section establishes the recursive attractor \( \Psi^*(\phi) \) as a stable, self-consistent eigenstate of the transition kernel. It emerges from a coherence-filtered entropy variational principle and governs the memory dynamics of the universe. Convergence is mathematically guaranteed and physically regulated by entropy–tension flow, enabling predictive observables in CMB, gravitational wave, and late-time cosmological structure.

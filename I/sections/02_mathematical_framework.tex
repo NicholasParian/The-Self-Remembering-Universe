@@ -1,0 +1,124 @@
+\section{Mathematical Framework}
+\label{sec:mathematical-framework}
+
+We formalize the evolution of the universe as a recursive quantum system governed by a transition kernel \( K(\phi, \phi') \), entropic constraints, and a recursive action principle. The configuration space is composed of field, geometric, and informational degrees of freedom, with memory effects implemented through a non-Markovian kernel.
+
+\subsection{2.1 Recursive Transition Amplitudes}
+
+The central evolution equation for the recursive wavefunction is:
+\begin{equation}
+\Psi_n(\phi) = \int K(\phi, \phi') \Psi_{n-1}(\phi') \, d\phi'
+\end{equation}
+
+The kernel \( K(\phi, \phi') \) is derived from the large-spin asymptotics of the EPRL spinfoam model (see Appendix~\ref{appendix:C2}) and takes the form:
+\begin{equation}
+K(\phi, \phi') \sim \exp\left[i S_{\text{ERB}}(\phi, \phi')\right] \cdot \mathcal{F}(\phi, \phi')
+\end{equation}
+where:
+\begin{itemize}
+    \item \( S_{\text{ERB}}(\phi, \phi') \): Entropic bridge action, defined as a quadratic functional over configuration differences (Appendix~C.3),
+    \item \( \mathcal{F}(\phi, \phi') \): Gaussian coherence filter controlling transition selectivity (Appendix~C.4).
+\end{itemize}
+
+\subsection{2.2 Configuration Space and Geometry}
+
+We define:
+\begin{align}
+\phi &= \{a, \varphi, \lambda, E\} \\
+\lambda &:= \text{Phase stability functional between cycles} \\
+E &:= \sqrt{S(\rho_{\text{red}})} = \sqrt{-\mathrm{Tr}(\rho_{\text{red}} \log \rho_{\text{red}})}
+\end{align}
+where \( a \) is the scale factor, \( \varphi \) is the scalar field value, \( \lambda \) quantifies inter-cycle fidelity, and \( E \) is the entanglement eigenvalue defined from the ERB throat's reduced density matrix.
+
+\subsection{2.3 Decoherence Kernel Dynamics}
+
+The memory kernel governing intra-cycle decoherence is:
+\begin{equation}
+D(\tau, E) = \gamma(E) \, e^{-\tau/\tau_c(E)} \cos(\omega_0(E) \tau)
+\end{equation}
+with entropy-modulated parameters:
+\begin{align*}
+\tau_c(E) &\sim E^{-1}, \quad \gamma(E) \sim e^{-\beta / E}, \quad \omega_0(E) \sim \sqrt{1 - \left(E / E_{\text{max}}\right)}
+\end{align*}
+This structure ensures finite memory coherence and wave interference compatibility with recursive evolution.
+
+\subsection{2.4 Information Divergence Term}
+
+To regulate entropy growth between orthogonal states, we define the information divergence as quantum relative entropy:
+\begin{equation}
+I(\phi, \phi') := S(\rho_\phi \| \rho_{\phi'}) = \mathrm{Tr}\left[ \rho_\phi \left( \log \rho_\phi - \log \rho_{\phi'} \right) \right]
+\end{equation}
+This replaces all heuristic uses of \( \log |\langle \Psi_n | \Psi_{n-1} \rangle| \), ensuring bounded entropy dynamics.
+
+\subsection{2.5 Recursive Entropy and Memory Conservation}
+
+The recursive entropy expression becomes:
+\begin{equation}
+S_n = \frac{A_{n-1}}{4G\hbar} + \lambda_S S(\rho_n \| \rho_{n-1})
+\end{equation}
+with the conservation inequality:
+\begin{equation}
+S_{n+1} \leq S_n - S_{\text{BH}} + \Delta S_{\text{holo}}
+\end{equation}
+
+In cycles exhibiting high information gain, the string tension \( \lambda_n \) increases. This tension acts as a thermodynamic constraint:
+\begin{equation}
+\frac{dS_n}{dn} \sim -\frac{d\lambda_n}{dn}
+\end{equation}
+Expansion-induced entropy loss is regulated by Hawking radiation, which balances the thermodynamic budget:
+\begin{equation}
+\frac{dS_{\text{net}}}{dn} = \frac{dS_{\text{rad}}}{dn} - \frac{d\lambda_n}{dn} \approx 0
+\end{equation}
+This condition defines a dynamic equilibrium in which tension-induced memory stress is dissipated through radiative channels, maintaining long-term coherence.
+
+\subsection{2.6 Energy Transfer Across Cycles}
+
+We define the energy flux across cycles using the Brown-York quasi-local tensor:
+\begin{equation}
+\Delta E_n = \frac{\kappa \Delta A}{8\pi G} + T_H \Delta S_{\text{holo}} - \lambda_E I(\phi, \phi') + \kappa_\lambda \lambda_n^2
+\end{equation}
+The final term models energy release due to coherence tension, such as that associated with string rupture and dimensional collapse events (e.g., supernova-type transitions).
+
+\subsection{2.7 Attractor Convergence Criteria}
+
+We define the recursive attractor state \( \Psi^*(\phi) \) as a fixed-point solution:
+\begin{equation}
+\Psi^*(\phi) = \int K(\phi, \phi') \Psi^*(\phi') \, d\phi'
+\end{equation}
+
+The coherence fitness functional governing convergence is:
+\begin{equation}
+\mathcal{F}_n = \alpha_C \, \text{Tr}(\rho_n^2) - \alpha_S S_n + \alpha_M \lambda
+\end{equation}
+Convergence requires:
+\begin{equation}
+\frac{d\mathcal{F}_n}{dn} > 0, \quad \mathcal{F}_n \geq \mathcal{F}_{\text{crit}}
+\end{equation}
+
+\subsection{2.8 Observational Predictions}
+
+Observable predictions include:
+\begin{itemize}
+    \item \textbf{CMB power suppression:} From Gaussian filtering in \( K(\phi, \phi') \).
+    \item \textbf{GW spectrum dips:} At \( f_j \sim \sqrt{j(j+1)} / (2\pi \ell_P) \).
+    \item \textbf{Scale-dependent non-Gaussianity:} \( f_{NL}^{\text{rec}} \sim \lambda_E \lambda^\alpha \).
+    \item \textbf{EB-mode polarization:} Void-aligned from residual coherence structure.
+\end{itemize}
+
+\subsection{2.9 Limitations and Extensions}
+
+Current derivations assume:
+\begin{itemize}
+    \item Large-spin asymptotics for the kernel,
+    \item Gaussian approximations for the filter,
+    \item Semiclassical entropy and energy estimates.
+\end{itemize}
+Future extensions will refine the kernel via full group field theory amplitudes and simulate attractor convergence numerically.
+
+\subsection{2.10 Tension-Induced Collapse Criterion}
+
+We define a falsifiable threshold for coherence rupture:
+\begin{equation}
+\lambda_n > \lambda_{\text{crit}} \quad \Rightarrow \quad \text{supernova-class GW burst at } f_{\text{burst}} \sim \frac{1}{\tau_{\text{mem}}}
+\end{equation}
+Detection of high-frequency GW bursts correlated with entropy minima or void structure collapse would provide empirical support for the tension-based constraint mechanism.

@@ -1,0 +1,97 @@
+\section*{Appendix B\\Single-Cycle Decoherence and Memory Kernel\\Dynamics}
+\addcontentsline{toc}{section}{Appendix B: Single-Cycle Decoherence and Memory Kernel Dynamics}
+\label{appendix:B}
+
+\subsection*{B.1 Overview}
+
+Intra-cycle decoherence is modeled using a density matrix formalism \( \rho_n(t) \), which evolves under a non-Markovian master equation coupled to memory feedback. Each cycle begins with a configuration-weighted projection from the previous epoch, initialized through the transition kernel \( K(\phi, \phi') \) (defined in Appendix~\ref{appendix:C2}). The model captures how recursive coherence propagates within a single cycle before subsequent kernel updates.
+
+\subsection*{B.2 Recursive Kernel Initialization}
+
+The initial state of cycle \( n \) is defined as:
+\[
+\rho_n(\phi) = \int K(\phi, \phi') \, \rho_{n-1}(\phi') \, d\phi'
+\]
+with kernel structure:
+\[
+K(\phi, \phi') \sim \exp\left[i S_{\text{ERB}}(\phi, \phi')\right] \cdot \mathcal{F}(\phi, \phi')
+\]
+The filter:
+\[
+\mathcal{F}(\phi, \phi') = \exp\left[
+-\frac{(a - a')^2}{2\sigma_a^2}
+-\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}
+-\frac{(E - E')^2}{2\sigma_E^2}
+\right]
+\]
+selects aligned configurations in geometry, field amplitude, and entanglement energy. The phase term \( S_{\text{ERB}} \) is the entropic bridge action (Appendix~C.3).
+
+\subsection*{B.3 Non-Markovian Decoherence Dynamics}
+
+The system evolves via:
+\[
+\dot{\rho}_n(t) = -i[H, \rho_n(t)] + \int_0^t D(\tau) \, [\hat{O}, [\hat{O}, \rho_n(t - \tau)]] \, d\tau
+\]
+where:
+\begin{itemize}
+    \item \( H \): Effective LQC Hamiltonian,
+    \item \( \hat{O} = \mathrm{Tr}(\rho_n^2) \, \hat{R}_{\text{eff}}(x) \): Purity-weighted curvature operator,
+    \item \( \hat{R}_{\text{eff}} \): Effective scalar curvature fluctuation operator modulated by local entanglement structure.
+\end{itemize}
+This form captures decoherence induced by gravitational degrees of freedom within each minisuperspace slice.
+
+\subsection*{B.4 Entropy-Modulated Memory Kernel}
+
+The kernel \( D(\tau) \) evolves dynamically based on the entropy:
+\[
+S_n(t) = -\mathrm{Tr}[\rho_n(t) \log \rho_n(t)]
+\]
+We define:
+\[
+D(\tau) = \gamma(S_n) \, e^{-\tau/\tau_c(S_n)} \cos(\omega_0(S_n) \tau)
+\]
+with entropy-dependent parameters:
+\begin{align*}
+\tau_c(S_n) &\sim S_n^{-1} \quad \text{(coherence time)} \\
+\omega_0(S_n) &= \omega_{\text{LQG}} \sqrt{1 - \left(S_n / S_{\text{max}}\right)} \\
+\gamma(S_n) &\propto e^{-\beta S_n}
+\end{align*}
+Here, \( S_{\text{max}} \) is a cycle-specific entropy bound derived from geometric constraints (e.g., ERB area). This form ensures:
+\begin{itemize}
+  \item Markovian behavior as \( S_n \to 0 \),
+  \item Coherence breakdown at saturation \( S_n = S_{\text{max}} \),
+  \item Spectral coherence tied to spin-quantized LQG structure.
+\end{itemize}
+
+\subsection*{B.5 Numerical Priorities and Observables}
+
+Key computational targets for each cycle \( n \):
+
+\paragraph{Entropy Evolution:}
+Track the decoherence process via:
+\[
+S_n(t) = -\mathrm{Tr}[\rho_n(t) \log \rho_n(t)]
+\]
+
+\paragraph{Intra-cycle Fidelity:}
+Evaluate memory retention:
+\[
+\mathcal{F}_n(t) = \mathrm{Tr}[\rho_n(0)\rho_n(t)]
+\]
+This differs from the inter-cycle fidelity \( \lambda_n = |\langle \Psi_{n-1} | \Psi_n \rangle|^2 \) used in attractor convergence (Appendix~C.1).
+
+\paragraph{Kernel Calibration:}
+Tune the entropy-dependent functions \( \gamma(S_n) \), \( \tau_c(S_n) \), and \( \omega_0(S_n) \) to fit:
+\begin{itemize}
+  \item Low-\( \ell \) CMB power suppression,
+  \item EB-mode polarization structure,
+  \item Coherence filtering thresholds near LISA-scale gravitational wave bands.
+\end{itemize}
+
+\paragraph{Initial Condition:}
+Each cycle begins from:
+\[
+\rho_n(0) = \int K(\phi, \phi') \, \rho_{n-1}(\phi') \, d\phi'
+\]
+
+Future simulation work will extend this to multi-cycle evolution, attractor tracking, and entropy dynamics across bounce and ER bridge transitions.

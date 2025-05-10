@@ -1,0 +1,69 @@
+\section{Recursive Variational Principles and Symmetry of Action}
+\label{sec:recursive-variational-symmetry}
+
+\subsection{11.1 Recursive Action Formalism}
+
+We define the recursive variational principle as:
+\begin{equation}
+\delta \mathcal{A}_{\text{total}} = 0 \quad \text{subject to} \quad \Delta S_{\text{fwd}} = \Delta S_{\text{mem}}
+\end{equation}
+This generalizes classical action principles by enforcing balance between entropy produced within a cycle and coherence lost across cycles.
+
+The action per cycle \( \mathcal{A}_n \) is expressed in terms of the recursive Lagrangian \( \mathcal{L}_n \) (see Appendix~\ref{appendix:C}):
+\begin{equation}
+\mathcal{A}_n = \int dt \, \mathcal{L}_n(q_n, \dot{q}_n; q_{n-1})
+\end{equation}
+with configuration variables \( q_n = (a_n, \varphi_n, \lambda_n, E_n) \) and Lagrangian components for geometry, memory, decoherence, and bridge terms.
+
+\subsection{11.2 Observer Projection and Boundary Constraint}
+
+Observation is modeled as a boundary projection at the decoherence surface:
+\begin{equation}
+\delta \Psi_n \big|_{\Sigma_{\text{obs}}} = \hat{O}_n \Psi_n
+\end{equation}
+The operator \( \hat{O}_n \) defines the entangled observable sector of the subsystem. As coherence decays, \( \hat{O}_n \to 0 \), suppressing further contribution to recursive memory.
+
+\subsection{11.3 Recursive Duality: Lagrangian and Memory Constraints}
+
+Recursive evolution reflects a dual constraint structure:
+\begin{itemize}
+    \item The Lagrangian \( \mathcal{L}_n \) governs intra-cycle dynamics,
+    \item The memory constraint governs inter-cycle propagation.
+\end{itemize}
+We encode this via a constrained variational condition:
+\begin{equation}
+\delta \mathcal{A}_{\text{total}} + \lambda_C \, \delta\left( \Delta S_{\text{fwd}} - \Delta S_{\text{mem}} \right) = 0
+\end{equation}
+with:
+\begin{align*}
+\Delta S_{\text{fwd}} &= S[\rho_n] - S[\rho_{n-1}] \\
+\Delta S_{\text{mem}} &= -\log \lambda_n
+\end{align*}
+and where \( \lambda_n = |\langle \Psi_{n-1} | \Psi_n \rangle|^2 \) is the coherence fidelity. The multiplier \( \lambda_C \) enforces conservation of recursive memory under entropy growth.
+
+\subsection{11.4 Tension Constraint and Decoherence Threshold}
+
+We now impose a tension bound on recursive transitions. Define:
+\begin{equation}
+\kappa_n := \frac{I(\phi_n, \phi_{n-1})}{\lambda_n}
+\end{equation}
+where \( I(\phi_n, \phi_{n-1}) = \mathrm{Tr}[\rho_n (\log \rho_n - \log \rho_{n-1})] \) is the quantum relative entropy. The following constraint must hold:
+\begin{equation}
+\kappa_n \leq \kappa_C
+\end{equation}
+for some fixed coherence-tension threshold \( \kappa_C \). Violations trigger recursive collapse (e.g., supernovae), modeled as nonperturbative phase resets in the configuration space (see Appendix~\ref{appendix:D}).
+
+This constraint replaces unphysical divergences in entropy cost and links coherence breakdown directly to gravitational phenomena through the memory tension budget.
+
+\subsection{11.5 Interpretation}
+
+The recursive variational principle formalizes evolution under dual pressures: retention of prior structure and suppression of incoherent divergence. It produces field equations that:
+\begin{itemize}
+    \item Propagate scalar and geometric fields under coherence filtering,
+    \item Suppress transitions with excessive memory cost,
+    \item Enforce attractor convergence under bounded entropy and tension,
+    \item Halt recursion when \( \kappa_n > \kappa_C \), leading to structural resets.
+\end{itemize}
+
+This structure unifies geometry, information theory, and thermodynamics under a single recursive logic.
+
