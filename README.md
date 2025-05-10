@@ -4,15 +4,15 @@ This repository contains all formal materials, source files, diagrams, derivatio
 
 ## Papers
 
-1. **The Self-Remembering Universe I** *(draft)*  
+I - **The Self-Remembering Universe I** *(draft)*  
    *Quantum Coherence Through Cyclic Spacetime Einstein–Rosen Bridges*  
    Defines a cyclic quantum cosmology grounded in loop quantum gravity, ER=EPR, and recursive entanglement structure.
 
-2. **The Self-Remembering Universe II** *(in development)*  
+II - **The Self-Remembering Universe II** *(in development)*  
    *Recursive Optimization and Coherence Mechanics in Meta-Configurational Dynamics*  
    Introduces the MetaCube: a computational structure modeling recursive evolution, memory retention, and attractor convergence through a cost-based learning functional.
 
-3. **The Self-Remembering Universe III** *(planned)*  
+III - **The Self-Remembering Universe III** *(planned)*  
    *Emergent Purpose, Observer Embedding, and the Logic of Existence*  
    Addresses the “why” of cosmological existence from within a memory-bearing, coherence-optimizing framework.
 
