@@ -1,0 +1,71 @@
+\section{Predictions and Experimental Pathways}
+\label{sec:predictions}
+
+\subsection{Quantized Curvature Modes}
+
+The recursive kernel $K(\phi, \phi')$ filters configuration transitions through coherence-preserving Gaussian structures. This filtering introduces quantized curvature features, modulated by the dominant coherence scale $j_0$ derived from spin foam amplitudes:
+\[
+\Delta R \sim \frac{1}{\sqrt{j_0}} \cdot \mathcal{F}(a, \varphi, \lambda, E),
+\]
+where $\mathcal{F}$ encodes the transition filter in configuration space (see Appendix~\ref{appendix:C}).
+
+Predicted observational signatures include:
+\begin{itemize}
+  \item Low-$\ell$ CMB power suppression from early-cycle memory filtering,
+  \item Oscillatory features in angular power spectra from coherence interference,
+  \item Coherence-dependent gravitational wave echoes from recursive memory propagation.
+\end{itemize}
+
+\subsection{Gravitational Wave Echoes and Memory Delay}
+
+Recursive coherence filtering introduces non-Markovian propagation in the gravitational wave signal. Observed strain $h_{\text{obs}}(t)$ becomes a convolution with an entanglement-weighted memory kernel $D(\tau, E)$:
+\[
+h_{\text{obs}}(t) = \int_0^t D(\tau, E) \cdot h(t - \tau) \, d\tau.
+\]
+This predicts:
+\begin{itemize}
+  \item Late-time echoes post-merger from partial recursive bounce memory,
+  \item Echo spacing $\tau_E \sim E_n$ tied to ER bridge entanglement length,
+  \item Damped repetition amplitudes controlled by coherence fidelity $\lambda_n$.
+\end{itemize}
+These features are testable in LIGO–Virgo–KAGRA–LISA data via waveform residuals~\cite{cardoso2016echoes, abedi2017echo}.
+
+\subsection{Polarization Alignment in the CMB}
+
+Recursive symmetry filtering predicts residual alignment in E-mode and B-mode polarization directions. Voids, being low-entropy structures, preferentially retain coherence, seeding aligned polarization vectors across large angular scales. This leads to:
+\begin{itemize}
+  \item Quadrupole–octupole alignment in low-$\ell$ multipoles~\cite{planck2018cmb},
+  \item EB-mode cross-correlation sourced by entanglement asymmetry $E_n$,
+  \item Angular phase coherence absent in inflationary stochastic models.
+\end{itemize}
+
+\subsection{Recursive Constraints on Extra Dimensions}
+
+In the toroidal configuration space $\mathcal{C}_n = \mathbb{T}^6$ with internal directions $(\gamma_n, \xi_n)$, coherence misalignment induces effective scale evolution:
+\[
+\ell^2_{\gamma} \sim \frac{1}{\lambda_C} \left\| \delta \phi_n^{(\gamma)} \right\|^2.
+\]
+Observable effects include:
+\begin{itemize}
+  \item Sub-millimeter deviations from Newtonian gravity~\cite{adelberger2009torsion},
+  \item Temporal drift in fundamental constants (e.g., $\alpha$, $G$) via $\gamma_n$-driven coupling variation~\cite{uzan2011varying},
+  \item Modulated vacuum masses in dark sector particles (e.g., axion-like fields) from entropy–tension collapse~\cite{ringwald2012axions}.
+\end{itemize}
+
+\subsection{Summary of Observable Channels}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Phenomenon} & \textbf{Prediction} & \textbf{Test Instrument} \\
+\hline
+CMB Low-$\ell$ Suppression & Kernel-filtered memory loss & Planck, LiteBIRD \\
+Gravitational Echoes & Delay $\tau_E$ from $D(\tau, E)$ & LISA, LVK \\
+EB-mode Alignment & Entangled void polarization & SKA, Euclid \\
+Extra-Dimensional Drift & $\gamma_n$–$\lambda_n$ modulation & Atomic clocks, torsion balances \\
+$g$ Variation & Cycle-indexed gauge coupling shift & BBN + CMB comparisons \\
+\hline
+\end{tabular}
+\caption{Primary observational predictions from recursive symmetry-filtered dynamics.}
+\end{table}

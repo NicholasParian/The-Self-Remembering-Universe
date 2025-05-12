@@ -1,0 +1,78 @@
+\section*{Appendix D\\Notation and Operator Glossary}
+\addcontentsline{toc}{section}{Appendix D: Notation and Operator Glossary}
+\label{appendix:D}
+
+\subsection*{D.1 Configuration Variables}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $a_n$ : Discrete scale factor at cycle $n$ (from loop quantum cosmology~\cite{ashtekar2006quantum})
+  \item $\varphi_n$ : Scalar field (e.g., inflaton, Higgs)
+  \item $\lambda_n$ : Coherence fidelity:
+  \[
+  \lambda_n := |\langle \Psi_n | \Psi_{n-1} \rangle|^2
+  \]
+  \item $E_n$ : Entanglement eigenvalue:
+  \[
+  E_n := \sqrt{-\mathrm{Tr}(\rho_{\text{red}} \log \rho_{\text{red}})} = \sqrt{S(\rho_{\text{red}})}
+  \]
+  \item $\gamma_n$ : Toroidal internal symmetry coordinate (e.g., compactified gauge phase)
+  \item $\xi_n$ : Observer resolution index controlling decoherence
+  \item $\phi_n$ : Recursive configuration vector:
+  \[
+  \phi_n = (a_n, \varphi_n, \lambda_n, E_n, \gamma_n, \xi_n)
+  \]
+\end{itemize}
+
+\subsection*{D.2 Operators and Fields}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $K(\phi, \phi')$ : Recursive transition kernel, coherence-filtered
+  \item $\Psi_n(\phi)$ : State of the system at cycle $n$
+  \item $\Psi^*(\phi)$ : Attractor state (fixed point of $K$)
+  \item $\rho$ : Full quantum density matrix
+  \item $\rho_{\text{red}}$ : Reduced density matrix across the ER bridge
+  \item $S(\rho)$ : Von Neumann entropy: $S(\rho) = -\mathrm{Tr}(\rho \log \rho)$
+  \item $S_{\text{rel}}(\rho \| \sigma)$ : Quantum relative entropy:
+  \[
+  S_{\text{rel}}(\rho \| \sigma) = \mathrm{Tr}[\rho(\log \rho - \log \sigma)]
+  \]
+  \item $\mathcal{T}$ : Recursive transition operator: $\phi_{n+1} = \mathcal{T}[\phi_n]$
+  \item $\mathcal{P}_\xi$ : Projection operator at observer resolution $\xi$
+  \item $O^{\mu\nu}$ : Observer entanglement tensor
+\end{itemize}
+
+\subsection*{D.3 Geometric and Physical Quantities}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $R_{\mu\nu}$ : Ricci curvature tensor
+  \item $\widetilde{R}_{\mu\nu}$ : Information-weighted curvature:
+  \[
+  \widetilde{R}_{\mu\nu} = R_{\mu\nu} + \alpha \nabla_\mu \nabla_\nu \log \det \rho_{\text{red}}
+  \]
+  \item $F_{\mu\nu}^{(a)}$ : Gauge field strength tensor
+  \item $J_\mu^{(a)}$ : Projected memory current sourcing gauge fields
+  \item $\tau_E$ : Delay time for gravitational wave echoes (set by $E_n$)
+\end{itemize}
+
+\subsection*{D.4 Action and Lagrangian Terms}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $\mathcal{A}_n[\phi]$ : Total recursive action for cycle $n$
+  \item $\mathcal{L}_{\text{EH}}$ : Einstein–Hilbert Lagrangian: $\frac{1}{2\kappa} R$
+  \item $\mathcal{L}_{\text{YM}}$ : Yang–Mills term for gauge fields
+  \item $\mathcal{L}_{\text{scalar}}$ : Scalar field Lagrangian
+  \item $\mathcal{L}_{\text{int}}$ : Interaction terms (e.g., scalar–fermion–gauge)
+  \item $\mathcal{L}_{\text{obs}}$ : Observer resolution and decoherence control
+  \item $\mathcal{L}_{\text{ent}}$ : Recursive entropy penalty term
+\end{itemize}
+
+\subsection*{D.5 Symbol Conventions and Parameters}
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $\oplus$ : Recursive coherence update (filtered XOR-type operator)
+  \item $\eta$ : Learning rate in variational descent toward attractor
+  \item $\delta_{\text{noise}}$ : Entropy-weighted noise in simulation dynamics
+  \item $\sigma_a$, $\sigma_\varphi$, $\sigma_E$, $\sigma_\gamma$ : Coherence filter widths
+  \item $\lambda_C$, $\lambda_T$, $\lambda_S$ : Lagrange multipliers for constraints
+  \item $\kappa$ : Gravitational coupling constant: $\kappa = 8\pi G$
+\end{itemize}

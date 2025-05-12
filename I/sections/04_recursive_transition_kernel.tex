@@ -1,20 +1,20 @@
 \section{Recursive Transition Kernel \( K(\phi,\phi') \)}
 \label{sec:kernel}
 
-The transition kernel \( K(\phi,\phi') \equiv K(a,\varphi,\lambda,E; a',\varphi',\lambda',E') \) governs recursive evolution of quantum states across cosmological cycles. It defines the probability amplitude for transitions between configurations \( \phi \) and \( \phi' \), incorporating memory fidelity, coherence filtering, and entropic admissibility.
+The transition kernel \( K(\phi,\phi') \equiv K(a,\varphi,\lambda,E; a',\varphi',\lambda',E') \) governs recursive evolution of quantum states across cosmological cycles. It defines the complex amplitude for transitioning between configurations \( \phi \) and \( \phi' \), incorporating memory fidelity, entropic divergence, and phase coherence. This kernel is formally derived in Appendix~\ref{appendix:C2} from the large-spin asymptotics of the EPRL spinfoam model.
 
 The kernel acts as:
 \begin{itemize}
     \item A \textbf{coherence filter} selecting phase- and geometry-aligned configurations,
-    \item An \textbf{entropy gate} preserving recursive memory under quantum relative entropy,
-    \item A \textbf{geometric bridge} enforcing spinfoam-mapped structure across ERB boundaries,
-    \item A \textbf{tension regulator} penalizing unphysical transitions driven by excessive information gain.
+    \item An \textbf{entropy gate} penalizing misaligned transitions via quantum relative entropy,
+    \item A \textbf{geometric propagator} enforcing bridge continuity across ERB boundaries,
+    \item A \textbf{tension regulator} suppressing unphysical information spikes beyond coherence stress bounds.
 \end{itemize}
 
 \subsection{Normalized Recursive Operator}
 \label{subsec:normalized-kernel}
 
-The evolution operator acts on recursive states via:
+Recursive evolution proceeds via:
 \begin{equation}
 \Psi_{n+1}(\phi) = \int d\phi' \, K_{\text{norm}}(\phi, \phi') \Psi_n(\phi'),
 \end{equation}
@@ -23,26 +23,26 @@ where:
 K_{\text{norm}}(\phi, \phi') &= \frac{K_{\text{eff}}(\phi, \phi')}{Z(\phi')}, \\
 Z(\phi') &= \int d\phi \, K_{\text{eff}}(\phi, \phi').
 \end{align}
-The normalization ensures conservation of probability and supports the convergence proof in Appendix~\ref{appendix:C9}.
+This normalization enforces probability conservation and supports the convergence proof in Appendix~\ref{appendix:C9}.
 
 \subsection{Effective Kernel Structure}
 \label{subsec:effective-kernel}
 
-The unnormalized effective kernel is defined as:
+The unnormalized kernel is:
 \begin{equation}
-K_{\text{eff}}(\phi, \phi') = \exp\left[-\lambda_S I(\phi, \phi') + \lambda_C C(\phi, \phi') \right] \cdot \mathcal{F}_C(\phi, \phi'),
+K_{\text{eff}}(\phi, \phi') = \exp\left[i S_{\text{ERB}}(\phi, \phi') - \lambda_S I(\phi, \phi') + \lambda_C C(\phi, \phi') \right] \cdot \mathcal{F}_C(\phi, \phi'),
 \end{equation}
 with:
 \begin{itemize}
+    \item \( S_{\text{ERB}}(\phi, \phi') \): ER bridge action between configurations (Appendix~C.3),
     \item \( I(\phi, \phi') := \mathrm{Tr}[\rho_\phi (\log \rho_\phi - \log \rho_{\phi'})] \): quantum relative entropy,
-    \item \( C(\phi, \phi') := \Psi_{n-1}^*(\phi) \Psi_{n-1}(\phi') \): coherence overlap from prior cycle,
-    \item \( \mathcal{F}_C(\phi, \phi') \): Gaussian envelope filter defined below.
+    \item \( C(\phi, \phi') := \langle \Psi_{n-1} | \mathcal{P}_{\phi,\phi'} | \Psi_{n-1} \rangle \): prior-cycle coherence overlap.
 \end{itemize}
 
 \subsection{Coherence Filter \( \mathcal{F}_C(\phi,\phi') \)}
 \label{subsec:coherence-filter}
 
-The coherence filter enforces alignment in geometric and entanglement variables:
+The Gaussian filter restricts transitions to phase- and curvature-aligned configurations:
 \[
 \mathcal{F}_C(\phi, \phi') = \exp\left[
     -\frac{(a - a')^2}{2\sigma_a^2}
@@ -51,11 +51,14 @@ The coherence filter enforces alignment in geometric and entanglement variables:
     -\frac{(E - E')^2}{2\sigma_E^2}
 \right]
 \]
+where:
 \begin{itemize}
-    \item \( \theta(\lambda) \): phase function associated with recursive tension coherence,
-    \item \( \sigma_{a,\varphi,\theta,E} \): filter widths controlling transition selectivity.
+    \item \( \theta(\lambda) \): phase function mapping memory fidelity to interference angle,
+    \item \( \sigma_a \): geometric width (typically Planck scale),
+    \item \( \sigma_\varphi \sim \lambda^{-1/2} \): scalar coherence width,
+    \item \( \sigma_\theta \sim \lambda^{-1} \): phase sensitivity scaling,
+    \item \( \sigma_E \sim E^{-1} \): entanglement resolution bound.
 \end{itemize}
-This form enforces constructive interference and continuity in curvature and entanglement structure.
 
 \subsection{Kernel Derivation}
 \label{subsec:kernel-derivation}
@@ -66,23 +69,23 @@ This form enforces constructive interference and continuity in curvature and ent
     -\frac{\hbar^2}{2}\frac{\partial^2}{\partial a^2} + V_{\text{eff}}(a,\varphi)
 \right]\Psi(a,\varphi) = 0
 \]
-Bounce symmetry is enforced across discrete steps:
+Bounce symmetry conditions are imposed at minimal scale:
 \[
 \Psi(a_{\text{min}}^-, \varphi) = \Psi(a_{\text{min}}^+, \varphi), \quad
 \partial_a\Psi|_{a_{\text{min}}^-} = \partial_a\Psi|_{a_{\text{min}}^+}
 \]
 
 \paragraph{Covariant LQG (Spinfoam Path Integral):}
-As derived in Appendix~\ref{appendix:C2}, the kernel is obtained from large-spin asymptotics of the EPRL amplitude:
+As shown in Appendix~\ref{appendix:C2}, we construct:
 \[
 K(\phi, \phi') \sim \exp\left[i S_{\text{ERB}}(\phi, \phi')\right] \cdot \mathcal{F}_C(\phi, \phi')
 \]
-with configuration variables mapped from:
+with LQG mappings:
 \begin{itemize}
-    \item \( a \): face areas \( A_f \sim \sqrt{j(j+1)} \),
-    \item \( \varphi \): scalar field boundary labels,
-    \item \( \lambda \): phase stability across cycles,
-    \item \( E \): ERB throat area (entanglement eigenvalue).
+    \item \( a \): face area \( A_f \sim \sqrt{j(j+1)} \),
+    \item \( \varphi \): scalar field node labels,
+    \item \( \lambda \): phase fidelity between attractor states,
+    \item \( E \): ERB throat entanglement.
 \end{itemize}
 
 \subsection{Observables and Kernel Parameters}
@@ -94,19 +97,19 @@ with configuration variables mapped from:
 \toprule
 \textbf{Kernel Parameter} & \textbf{Physical Mapping} & \textbf{Observable Signature} \\
 \midrule
-\( \sigma_\varphi \) & Field alignment width & CMB non-Gaussianity \( f_{\text{NL}} \sim \sigma_\varphi^{-1} \) \\
-\( \sigma_E \) & Entanglement coherence width & EB-mode polarization alignment \\
-\( \langle \Psi_n | \Psi_{n-1} \rangle \) & Inter-cycle fidelity & Entropy decay rate \( \dot{S}_n \) \\
-\( j_0 \) & Dominant spin scale & GW spectrum peak frequency \\
+\( \sigma_\varphi \sim \lambda^{-1/2} \) & Field alignment width & Non-Gaussianity \( f_{\text{NL}} \sim \sigma_\varphi^{-1} \) \\
+\( \sigma_E \sim E^{-1} \) & Entanglement resolution & EB-mode polarization alignment \\
+\( \lambda \) & Memory fidelity & Overlap decay rate \( \partial_n \lambda \) \\
+\( j_0 \) & Dominant spin & GW spectrum peak near \( f_j \sim \sqrt{j_0(j_0+1)} \) \\
 \bottomrule
 \end{tabular}
-\caption{Mapping between kernel structure and observable cosmological features.}
+\caption{Mapping kernel parameters to observable features.}
 \end{table}
 
 \subsection{Tension and Boundary Constraints}
 \label{subsec:tension-constraints}
 
-Transitions are regulated by soft constraints enforcing minimum area and bounded entropy flow:
+To enforce physical viability of transitions:
 \[
 W_{\text{constraints}} = \exp\left[
     -\lambda_A\left(\frac{\ell_{\text{Pl}}^2}{A(\phi,\phi')}\right)^{\alpha} 
@@ -114,24 +117,26 @@ W_{\text{constraints}} = \exp\left[
 \right]
 \]
 
-Tension regulation is incorporated through entropy divergence suppression:
+Additional tension-based suppression:
 \[
 W_T(\phi,\phi') = \exp\left[
   -\lambda_T \left( \frac{I(\phi, \phi')}{\lambda} - \kappa_C \right)^2
 \right]
 \]
-with:
-\begin{itemize}
-    \item \( \kappa_C \): critical coherence stress threshold (from broken dimension/string logic),
-    \item \( \lambda \): memory fidelity from the current cycle.
-\end{itemize}
-This term is absorbed into the effective kernel \( K_{\text{eff}} \) and governs supernova-like rupture transitions under excessive memory strain (see Section~\ref{sec:recursive-variational} and Appendix~\ref{appendix:D}).
+where \( \kappa_C \) is the coherence rupture threshold. Excessive divergence triggers suppressed branching or collapse (see Section~\ref{sec:mathematical-framework} and Appendix~\ref{appendix:D}).
 
 \subsection{Numerical Strategy}
 \label{subsec:numerical}
 
-Monte Carlo integration over dominant spin sectors is used to approximate the kernel. Adaptive Crank–Nicolson evolution integrates the LQC sector. Entropy-aware memory filtering enforces convergence to the attractor state \( \Psi^*(\phi) \). See Appendix~C.5 for full numerical details.
+Kernel evolution is simulated via:
+\begin{itemize}
+    \item Monte Carlo integration over dominant spin sectors,
+    \item Crank–Nicolson time evolution for minisuperspace modes,
+    \item Fidelity-weighted entropy decay monitoring,
+    \item Attractor alignment check via \( \lambda_n \to 1 \) and entropy stabilization.
+\end{itemize}
+Full numerical implementation is detailed in Appendix~\ref{appendix:C5}.
 
-\vspace{0.5em}
+\bigskip
 \noindent
-\textit{For a formal proof of convergence under recursive kernel evolution, see Appendix~\ref{appendix:C9}.}
+\textit{Note: \( K(\phi, \phi') \) is a complex amplitude, not a classical transition probability. Recursive coherence emerges through constructive interference across cycles.}

@@ -1,0 +1,58 @@
+\section{Entropy, Time, and Measurement}
+
+\subsection{Thermodynamic Constraints on Recursive Evolution}
+
+The recursive action imposes an entropy compensation constraint between successive cycles. This is enforced via a potential term:
+\[
+\mathcal{V}_{\text{ent}} = \lambda_S \cdot S_{\text{rel}}(\rho_{\phi_n} \| \rho_{\phi_{n-1}}),
+\]
+where $S_{\text{rel}}$ is the quantum relative entropy:
+\[
+S_{\text{rel}}(\rho \| \sigma) = \Tr(\rho \log \rho - \rho \log \sigma),
+\]
+and $\lambda_S$ is a Lagrange multiplier enforcing bounded memory drift.
+
+This constraint ensures that entropy increase is not unconstrained but balanced against coherence fidelity. Excess divergence from prior states incurs an action penalty, enforcing the thermodynamic principle:
+\[
+\Delta S_{\text{fwd}} = \Delta S_{\text{mem}}.
+\]
+
+\subsection{Recursive Time and Attractor Convergence}
+
+Time in this framework is emergent and discrete, indexed by the cycle number $n$. The arrow of time corresponds to the forward propagation of coherence fidelity:
+\[
+\lambda_n := \left| \left\langle \Psi_n \middle| \Psi_{n-1} \right\rangle \right|^2.
+\]
+Temporal alignment is driven by convergence toward the recursive attractor $\Psi^*(\phi)$:
+\[
+\partial_n \phi_n \to 0 \quad \text{as} \quad \phi_n \to \Psi^*(\phi).
+\]
+This limit corresponds to entropy saturation and maximal recursive coherence. Deviation from the attractor induces decoherence and structural time dilation, interpreted geometrically as expansion or curvature acceleration.
+
+\subsection{Measurement as Resolution-Dependent Collapse}
+
+Measurement arises from resolution-dependent decoherence triggered by the observer field $\xi_n$. The localized decoherence map is:
+\[
+\mathcal{D}_x[\rho] = \rho - \rho^2 \approx \epsilon(x) \quad \text{when} \quad \xi_n(x) \gg 0.
+\]
+High-resolution observers induce sharper entropy gradients, causing selective projection:
+\[
+\rho \to \mathcal{P}_{\xi_n} \rho,
+\]
+where $\mathcal{P}_{\xi_n}$ is a coarse-grained projection operator determined by the observer's resolution scale.
+
+This process is consistent with quantum Darwinism~\cite{zurek2003decoherence}, but extended into a cyclic recursive setting. Observation is not a terminal act but part of a feedback loop that reshapes the recursive kernel and memory trajectory.
+
+\subsection{Decoherence as Kernel Modification}
+
+Decoherence modifies the recursive transition kernel $K(\phi, \phi')$ by narrowing the Gaussian envelope in the resolution-weighted direction. Observers with high $\xi_n$ restrict the support of $K$, enforcing local collapse and suppressing transitions that diverge from their resolved subspace.
+
+This leads to an adaptive kernel structure:
+\[
+K(\phi, \phi') \to K_{\xi_n}(\phi, \phi') = K(\phi, \phi') \cdot \mathbb{1}_{\text{aligned with } \mathcal{P}_{\xi_n}},
+\]
+where only transitions consistent with observer resolution and memory coherence contribute to evolution.
+
+\subsection{Summary}
+
+Recursive time is a function of fidelity evolution. Entropy constraints ensure coherence preservation, while observation projects future states into resolution-dependent subspaces. Decoherence is not external collapse, but internal modulation of the transition structure governing recursive state propagation.

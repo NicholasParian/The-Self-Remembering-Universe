@@ -10,16 +10,16 @@ We define the full cosmological configuration as:
 \[
 \phi = (a, \varphi, \lambda, E),
 \]
-where \( a \) is the scale factor, \( \varphi \) the scalar field value, \( \lambda \) the cycle-to-cycle coherence fidelity, and \( E = \sqrt{-\mathrm{Tr}(\rho_{\text{red}} \log \rho_{\text{red}})} \) the entanglement eigenvalue across the Einstein--Rosen bridge.
+where \( a \) is the scale factor, \( \varphi \) the scalar field value, \( \lambda \) the cycle-to-cycle coherence fidelity, and \( E = \sqrt{-\mathrm{Tr}(\rho_{\text{red}} \log \rho_{\text{red}})} \) the entanglement eigenvalue across the Einstein–Rosen bridge.
 
 The recursive action governing evolution is:
 \begin{equation}
-\mathcal{A}_n = \sum_{k=1}^n \left[ \mathcal{A}_{\text{EH}}[\phi_k] + \lambda_E D(\tau_k, E) - \gamma S(\rho_{\phi_k} \| \rho_{\phi_{k-1}}) \right],
+\mathcal{A}_n = \sum_{k=1}^n \left[ \mathcal{A}_{\text{EH}}[\phi_k] + \lambda_E D(\tau_k, E_k) - \gamma \, S(\rho_{\phi_k} \| \rho_{\phi_{k-1}}) \right],
 \end{equation}
 as detailed in Appendix~\ref{appendix:C6}, where:
 \begin{itemize}
     \item \( \mathcal{A}_{\text{EH}} \): Einstein–Hilbert gravitational action per cycle,
-    \item \( D(\tau_k, E) \): non-Markovian memory kernel,
+    \item \( D(\tau_k, E_k) \): non-Markovian memory kernel weighted by entanglement,
     \item \( S(\rho_k \| \rho_{k-1}) \): quantum relative entropy measuring information loss.
 \end{itemize}
 
@@ -32,52 +32,56 @@ State evolution follows the kernel-mediated recursion:
 \]
 where \( K_{\text{norm}} \) is the normalized transition kernel (see Section~\ref{sec:kernel}, Eq.~4.1). The attractor \( \Psi^*(\phi) \) is defined as the unique fixed point:
 \[
-\Psi^*(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi^*(\phi') \, d\phi',
+\Psi^*(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi^*(\phi') \, d\phi', \quad \text{with} \quad \int |\Psi^*(\phi)|^2 d\phi = 1.
 \]
-and exists by the contraction mapping theorem (Appendix~\ref{appendix:C9}).
+Convergence toward the attractor is confirmed when:
+\[
+\| \Psi_{n+1} - \Psi_n \|^2 < \epsilon, \quad \text{for some} \quad \epsilon \ll 1.
+\]
 
 The attractor also minimizes a coherence-weighted entropy functional:
 \[
 \Psi^* = \arg\min_{\Psi} \left\{ \lambda_S S(\rho_\Psi) + \lambda_T \lambda^2 - \lambda_C |\langle \Psi | \Psi_{n-1} \rangle|^2 \right\},
 \]
-subject to normalization \( \langle \Psi | \Psi \rangle = 1 \), as derived in Appendix~\ref{appendix:C7}. This structure balances disorder, memory strain, and fidelity with past cycles.
+subject to normalization \( \langle \Psi | \Psi \rangle = 1 \), as derived in Appendix~\ref{appendix:C7}. This structure balances entropy, memory strain, and fidelity with past cycles.
 
 \subsection{Entropy–Tension Compensation and Collapse Thresholds}
 \label{subsec:entropy-dynamics}
 
-Recursive evolution obeys an entropy–tension balance constraint:
+Recursive evolution obeys a thermodynamic constraint equating entropy flow and coherence tension:
 \[
-\frac{dS_n}{dn} \sim -\frac{d\lambda_n}{dn},
+\frac{d}{dn} \left( S_n + \lambda_n \right) = \frac{dS_{\text{rad}}}{dn},
 \]
-where entropy loss from coherence sharpening is offset by tension increase. Radiative backreaction maintains thermodynamic consistency:
+where entropy loss from coherence sharpening is compensated by radiation. This enforces thermodynamic consistency across cycles and is derived in Appendix~\ref{appendix:C8}.
+
+When coherence tension exceeds a critical threshold \( \lambda_n > \lambda_{\text{crit}} \), recursive failure occurs, interpreted as a rupture event akin to a supernova-like collapse or dimensional reset:
 \[
-\frac{dS_{\text{net}}}{dn} = \frac{dS_{\text{rad}}}{dn} - \frac{d\lambda_n}{dn} \approx 0,
+\lambda_n > \lambda_{\text{crit}} \quad \Rightarrow \quad \text{GW burst at } f_{\text{burst}} \sim \tau_{\text{mem}}^{-1}.
 \]
-as formalized in Appendix~\ref{appendix:C8}. When coherence tension exceeds a critical threshold \( \lambda_n > \lambda_{\text{crit}} \), recursive failure occurs, interpreted as supernova-like collapse.
 
 \subsection{Observable Consequences of the Attractor}
 \label{subsec:observables}
 
-The attractor structure and filtering kernel produce several falsifiable predictions:
+The attractor structure and filtering kernel yield several falsifiable predictions:
 
 \paragraph{CMB Power Suppression:}
 \[
 C_\ell^{\text{rec}} \propto \exp\left[-\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}\right] \cdot \cos^2(\Delta \theta),
 \]
-where \( \sigma_\varphi \) is the coherence width and \( \Delta \theta \) is the recursive interference phase.
+where \( \sigma_\varphi \) is the coherence filter width and \( \Delta \theta \) is the recursive interference phase. This predicts low-\( \ell \) suppression and angular correlations.
 
 \paragraph{Gravitational Wave Echoes:}
 \[
 f_j \sim \frac{1}{\tau_M} \cdot e^{-j \Delta}, \quad j \in \mathbb{Z}^+,
 \]
-arising from boundary-induced memory delays, where \( \tau_M \) is the coherence memory window.
+from boundary-induced memory delays and entanglement reemission across ERBs.
 
 \paragraph{Entropy Bound Enforcement:}
 \[
 S(\rho_\phi \| \rho_{\phi'}) < \frac{A(\phi)}{4G} \quad \text{if } E > E_{\text{crit}},
 \]
-enforcing bounded divergence when entanglement exceeds the propagation threshold.
+enforcing bounded information divergence when entanglement exceeds the critical propagation threshold.
 
 \subsection{Summary}
 
-This section establishes the recursive attractor \( \Psi^*(\phi) \) as a stable, self-consistent eigenstate of the transition kernel. It emerges from a coherence-filtered entropy variational principle and governs the memory dynamics of the universe. Convergence is mathematically guaranteed and physically regulated by entropy–tension flow, enabling predictive observables in CMB, gravitational wave, and late-time cosmological structure.
+This section establishes the recursive attractor \( \Psi^*(\phi) \) as a stable, self-consistent eigenstate of the transition kernel. It emerges from a coherence-filtered entropy variational principle and governs the memory dynamics of the universe. Recursive convergence is guaranteed by contraction mapping, while tension–entropy dynamics enforce radiative compensation and yield falsifiable observables in gravitational waves, CMB structure, and information entropy bounds.

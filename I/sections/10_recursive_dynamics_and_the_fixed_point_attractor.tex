@@ -1,118 +1,114 @@
 \section{Recursive Dynamics and the Fixed-Point Attractor}
 \label{sec:attractor}
 
-\subsection{10.1 Recursive Evolution and Attractor Definition}
+\subsection{Recursive Evolution and Attractor Definition}
 
-We define the recursive wavefunction \( \Psi_n(\phi) \) as the quantum configuration at cycle \( n \). Recursive evolution is governed by the normalized transition kernel \( K_{\text{norm}}(\phi, \phi') \):
+We define the recursive wavefunction \( \Psi_n(\phi) \) as the quantum configuration at cycle \( n \), evolving via the normalized transition kernel \( K_{\text{norm}}(\phi, \phi') \) defined in Section~\ref{sec:kernel}:
 \[
-\Psi_{n+1}(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi_n(\phi') \, d\phi',
+\Psi_{n+1}(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi_n(\phi') \, d\phi'.
 \]
-where \( K_{\text{norm}} \) is defined in Section~\ref{sec:kernel} and formally derived in Appendix~\ref{appendix:C9}.
-
 The recursive attractor \( \Psi^*(\phi) \) is the unique fixed point of this operator:
 \[
 \Psi^*(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi^*(\phi') \, d\phi',
 \]
-representing a coherence-preserving, entropy-stabilized eigenstate of the full recursive system. Its existence and convergence are mathematically proven via contraction mapping (Appendix~\ref{appendix:C9}).
+representing a self-consistent, coherence-preserving solution. Its existence and convergence are established by the contraction mapping theorem (Appendix~\ref{appendix:C9}).
 
-\subsection{10.2 Conditions for Convergence}
+\subsection{Conditions for Convergence}
 
-Convergence to \( \Psi^*(\phi) \) is driven by recursive filtering and entropy suppression. The key conditions are:
+Convergence toward the attractor state is driven by recursive entropy filtering and fidelity constraints. The system converges if:
 
 \begin{enumerate}
     \item \textbf{Entropy Bound:}
     \[
-    S_n = -\text{Tr}[\rho_n \ln \rho_n] < S_{\text{max}}(E, n)
+    S_n = -\mathrm{Tr}[\rho_n \log \rho_n] < S_{\text{max}}(E, n),
     \]
     \item \textbf{Memory Fidelity:}
     \[
-    M_n = |\langle \Psi_n | \Psi_{n-1} \rangle|^2 > M_{\text{crit}}
+    M_n = |\langle \Psi_n | \Psi_{n-1} \rangle|^2 > M_{\text{crit}},
     \]
-    \item \textbf{Fitness Threshold:}
+    \item \textbf{Fitness Functional:}
     \[
-    \mathcal{F}_n = \alpha_C \cdot \text{Tr}(\rho_n^2) - \alpha_S S_n + \alpha_M M_n \geq \mathcal{F}_{\text{crit}}
+    \mathcal{F}_n = \alpha_C \, \mathrm{Tr}(\rho_n^2) - \alpha_S S_n + \alpha_M M_n \geq \mathcal{F}_{\text{crit}}.
     \]
 \end{enumerate}
 
-The attractor also minimizes a coherence-weighted entropy functional (Appendix~\ref{appendix:C7}):
+The attractor also minimizes the coherence-weighted entropy functional defined in Appendix~\ref{appendix:C7}:
 \[
 \Psi^* = \arg\min_{\Psi} \left\{ \lambda_S S(\rho_\Psi) + \lambda_T \lambda^2 - \lambda_C |\langle \Psi | \Psi_{n-1} \rangle|^2 \right\}.
 \]
 
-\subsection{10.3 Dynamical Properties of \( \Psi^*(\phi) \)}
+\subsection{Dynamical Properties of \( \Psi^*(\phi) \)}
 
-The attractor exhibits the following properties:
+The attractor exhibits stability under recursive evolution:
 
 \begin{itemize}
     \item \textbf{Lyapunov Stability:}
     \[
-    \mathcal{L}_n = \log \left| \frac{\|\Psi_{n+1} - \Psi_n\|}{\|\Psi_n - \Psi_{n-1}\|} \right| < 0
+    \mathcal{L}_n = \log \left| \frac{\|\Psi_{n+1} - \Psi_n\|}{\|\Psi_n - \Psi_{n-1}\|} \right| < 0,
     \]
+    indicating exponential decay of perturbations,
     \item \textbf{Entropy Saturation:}
     \[
-    S(\rho_{n+1} \| \rho_n) \to 0
+    S(\rho_{n+1} \| \rho_n) \to 0,
     \]
-    \item \textbf{Phase Coherence:}
+    \item \textbf{Phase Coherence Stability:}
     \[
-    \Delta \theta_n \to \theta^* \in [0, \pi]
+    \Delta \theta_n \to \theta^* \in [0, \pi],
     \]
+    where \( \theta^* \) reflects the stabilized phase alignment across cycles.
 \end{itemize}
 
-These behaviors signal long-term stability of the recursive system under entropy filtering and memory preservation.
+\subsection{Physical Interpretation}
 
-\subsection{10.4 Physical Interpretation}
-
-The attractor \( \Psi^*(\phi) \) defines the equilibrium limit of recursive quantum evolution. It acts as:
+The attractor \( \Psi^*(\phi) \) defines the asymptotic state of recursive cosmological evolution:
 \begin{itemize}
-    \item A \textbf{memory-retaining quantum state} stable under interference filtering,
-    \item A \textbf{conformal-invariant configuration}:
+    \item It retains maximal coherence across bounce transitions,
+    \item It satisfies a conformal invariance property:
     \[
     \Psi^*(\Omega^2 g_{\mu\nu}, \phi) = \Psi^*(g_{\mu\nu}, \phi),
     \]
-    \item A \textbf{selective filter}: configurations that interfere constructively with \( \Psi^* \) persist; others decohere.
+    \item It selectively propagates only configurations that constructively interfere with prior-cycle memory.
 \end{itemize}
 
-\subsection{10.5 Observational Implications}
+\subsection{Observational Implications}
 
-Attractor convergence yields testable signatures:
+Observable signatures of attractor convergence include:
 
 \begin{itemize}
-    \item \textbf{CMB Suppression:}
+    \item \textbf{CMB Power Suppression:}
     \[
-    C_\ell^{\text{rec}} \propto \exp\left[-\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}\right] \cdot \cos^2(\Delta \theta)
+    C_\ell^{\text{rec}} \propto \exp\left[-\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}\right] \cdot \cos^2(\Delta \theta),
     \]
     \item \textbf{Recursive Non-Gaussianity:}
     \[
-    f_{\text{NL}}^{\text{rec}} \propto \lambda_E |\langle \Psi_{n-1} | \Psi_n \rangle|^\alpha
+    f_{\text{NL}}^{\text{rec}} \propto \lambda_E |\langle \Psi_{n-1} | \Psi_n \rangle|^\alpha,
     \]
     \item \textbf{Gravitational Wave Echoes:}
-    Phase-coherent echo modes cluster around recursive intervals.
+    Discrete echo modes centered on kernel-aligned memory intervals.
 \end{itemize}
 
-\subsection{10.6 Recursive Entropy Compensation and Breakdown}
+\subsection{Recursive Entropy Compensation and Collapse Thresholds}
 
-Recursive evolution imposes a thermodynamic constraint on coherence tension \( \lambda_n \). The entropy-tension balance condition (Appendix~\ref{appendix:C8}) reads:
+The attractor enforces a thermodynamic constraint on entropy and memory dynamics:
 \[
 \Delta S_{\text{gain}} + \Delta S_{\text{rad}} = \Delta S_{\text{exp}},
 \]
-ensuring that entropy loss from increased memory (gain) is offset by Hawking radiation (rad) and dilution from expansion (exp).
-
-A more direct constraint relates bounce entropy and radiative emission:
+ensuring that coherence sharpening (information gain) is compensated by Hawking radiation and cosmological expansion. A complementary differential form reads:
 \[
 \frac{d\lambda_n}{dn} + \frac{dS_{\text{rad}}^{(n)}}{dn} = \frac{dS_{\text{bounce}}^{(n)}}{dn},
 \]
-where:
+with:
 \begin{itemize}
-    \item \( S_{\text{bounce}}^{(n)} = \frac{A_n}{4G\hbar} \),
-    \item \( S_{\text{rad}}^{(n)} \): entropy emitted via Hawking radiation across the ERB.
+    \item \( S_{\text{bounce}}^{(n)} = A_n / 4G\hbar \): geometric entropy across the ERB,
+    \item \( S_{\text{rad}}^{(n)} \): entropy flux via radiation.
 \end{itemize}
 
-When:
+When the recursive tension exceeds a critical threshold,
 \[
 \lambda_n > \lambda_{\text{crit}},
 \]
-the system undergoes recursive collapse or string rupture. The severity depends on the number of dimensions whose tension threshold is breached, corresponding to distinct classes of supernovae or memory-driven cosmic events.
+the system undergoes a coherence rupture. The number of dimensions crossing this threshold governs the type of collapse, from localized decoherence to large-scale supernova-class gravitational events.
 
-\subsection{10.7 Summary}
+\subsection{Summary}
 
-The attractor state \( \Psi^*(\phi) \) encodes the long-term structure of recursive memory, defined by stability under entropy-filtered interference and convergence under contraction. It is both a mathematical fixed point and a physical coherence filter: the universe retains only configurations consistent with recursive survival. Its dynamics are falsifiable, predictive, and central to the model’s explanatory power.
+The recursive attractor \( \Psi^*(\phi) \) governs the stable limit of quantum cosmological evolution under entanglement constraints, entropy filtering, and interference selection. It defines a dynamically preferred configuration class, enforceable by observational signatures. This construct is central to the framework’s predictive power and unifies the model’s dynamical and thermodynamic structure.

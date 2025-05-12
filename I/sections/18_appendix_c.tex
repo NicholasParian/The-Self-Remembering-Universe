@@ -2,7 +2,7 @@
 \addcontentsline{toc}{section}{Appendix C: Recursive Lagrangian Dynamics and First-Principles Kernel Derivation}
 \label{appendix:C}
 
-\subsection*{C.1 Kinematic Structure of Recursive Configuration Space}
+\subsection*{Kinematic Structure of Recursive Configuration Space}
 
 The configuration space governing recursive quantum cosmology is defined as:
 \[
@@ -40,7 +40,7 @@ The transition kernel \( K(\phi, \phi') \) and entropic action \( S_{\text{ERB}}
 
 This structure defines the configuration space on which recursive dynamics, attractor behavior, and observational signatures are evaluated.
 
-\subsection*{C.2 Kernel Derivation from Spinfoam Amplitudes}
+\subsection*{Kernel Derivation from Spinfoam Amplitudes}
 \label{appendix:C2}
 
 The recursive transition kernel \( K(\phi, \phi') \) defines the amplitude for evolution between configuration states \(\phi_n\) and \(\phi_{n+1}\), incorporating quantum geometry, entanglement memory, and coherence filtering. We derive this kernel from the covariant loop quantum gravity (LQG) formalism using the large-spin asymptotics of the EPRL spinfoam model~\cite{barrett2009asymptotic, engle2008lqg}.
@@ -89,7 +89,7 @@ where:
   \item \( \mathcal{F}(\phi, \phi') \) is a Gaussian envelope function filtering incoherent paths.
 \end{itemize}
 
-\subsection*{C.3 Entropic Bridge Action}
+\subsection*{Entropic Bridge Action}
 
 We define the ERB action as a quadratic functional over configuration differences:
 \[
@@ -97,7 +97,7 @@ S_{\text{ERB}}(\phi, \phi') = \alpha_a (a - a')^2 + \alpha_\varphi (\varphi - \v
 \]
 with coupling constants \(\alpha_a, \alpha_\varphi, \alpha_E, \alpha_\lambda > 0\) encoding resistance to change across cycles. These constants may be constrained by observational data or entropy minimization principles.
 
-\subsection*{C.4 Coherence Filtering Function}
+\subsection*{Coherence Filtering Function}
 
 We define:
 \[
@@ -106,12 +106,12 @@ We define:
 where \(\sigma_{a,\varphi,E}\) are coherence tolerance widths. This structure mimics a Gaussian filter derived from variation in classical Regge action near semiclassical geometries, enforcing interference alignment.
 
 This completes the derivation of the kernel \( K(\phi, \phi') \) from first principles in covariant loop quantum gravity, anchored to recursive memory-preserving dynamics.
-\subsection*{C.5 Numerical Implementation}
+\subsection*{Numerical Implementation}
 \label{appendix:C5}
 
 Numerical simulation of recursive quantum cosmology requires integration of LQC dynamics, spinfoam amplitude evaluation, and memory kernel propagation. This section outlines the key components and computational priorities.
 
-\subsubsection*{C.5.1 Spinfoam Monte Carlo Sampling}
+\subsubsection*{Spinfoam Monte Carlo Sampling}
 
 The transition kernel \( K(\phi, \phi') \) is approximated using a spin-sum Monte Carlo method over boundary 2-complexes:
 \begin{equation}
@@ -124,7 +124,7 @@ where each term samples a boundary spin configuration \( \{j_f^{(i)}, \iota_v^{(
 \end{itemize}
 Parallel tempering is used across spin sectors to improve convergence in the presence of interference nodes.
 
-\subsubsection*{C.5.2 Discrete LQC Evolution}
+\subsubsection*{Discrete LQC Evolution}
 
 The LQC minisuperspace Hamiltonian is:
 \begin{equation}
@@ -140,7 +140,7 @@ Normalization is enforced:
 \end{equation}
 where \( \mu(a) \) is the LQC measure.
 
-\subsubsection*{C.5.3 Memory Kernel Discretization}
+\subsubsection*{Memory Kernel Discretization}
 
 The decoherence kernel is implemented via finite-memory convolution:
 \begin{equation}
@@ -153,7 +153,7 @@ where:
 \end{itemize}
 The memory window \( T_{\text{mem}} \sim 5\tau_c \) is sufficient for convergence.
 
-\subsubsection*{C.5.4 Fidelity and Attractor Tracking}
+\subsubsection*{Fidelity and Attractor Tracking}
 
 Inter-cycle fidelity is computed as:
 \begin{equation}
@@ -164,7 +164,7 @@ The coherence fitness functional \( \mathcal{F}_n \) is logged at each step. Con
 D_n = \| \Psi_{n+1} - \Psi_n \|_{L^2}, \quad D_n \to 0
 \end{equation}
 
-\subsubsection*{C.5.5 Implementation Notes}
+\subsubsection*{Implementation Notes}
 
 \begin{itemize}
   \item Field space is truncated to a finite box \( \phi \in [-\phi_{\max}, \phi_{\max}] \) with absorbing boundary conditions.
@@ -172,7 +172,7 @@ D_n = \| \Psi_{n+1} - \Psi_n \|_{L^2}, \quad D_n \to 0
   \item Codebase can be structured using TensorFlow or Julia with GPU acceleration for spin amplitude evaluation.
 \end{itemize}
 
-\subsection*{C.6 Complete Recursive Action Functional}
+\subsection*{Complete Recursive Action Functional}
 \label{appendix:C6}
 
 The recursive evolution of the universe is governed by a total action functional spanning geometry, quantum coherence, and memory propagation. We define:
@@ -181,7 +181,7 @@ The recursive evolution of the universe is governed by a total action functional
 \end{equation}
 where each component encodes a distinct physical contribution per cycle.
 
-\subsubsection*{C.6.1 Einstein–Hilbert Sector}
+\subsubsection*{Einstein–Hilbert Sector}
 
 The gravitational term is given by the standard action over 4D spacetime:
 \begin{equation}
@@ -195,7 +195,7 @@ where:
   \item \( \mathcal{M}_n \): manifold corresponding to cycle \( n \).
 \end{itemize}
 
-\subsubsection*{C.6.2 Einstein–Rosen Bridge Sector}
+\subsubsection*{Einstein–Rosen Bridge Sector}
 
 The bridge action encodes thermodynamic and informational flow across cycles:
 \begin{equation}
@@ -210,7 +210,7 @@ where:
 
 This term ensures that only memory-compatible transitions (low \( I \)) dominate the kernel amplitude.
 
-\subsubsection*{C.6.3 Memory Entropy Sector}
+\subsubsection*{Memory Entropy Sector}
 
 The memory term penalizes loss of coherence between cycles:
 \begin{equation}
@@ -224,7 +224,7 @@ with:
 
 This term reflects the system’s tendency to preserve quantum overlap and suppress transition to decohered branches.
 
-\subsubsection*{C.6.4 Variational Principle}
+\subsubsection*{Variational Principle}
 
 The full recursive dynamics are determined by the condition:
 \begin{equation}
@@ -236,7 +236,7 @@ subject to:
 \end{equation}
 This enforces balance between forward entropy increase and backward memory retention, and ensures convergence toward coherence-stabilized attractor states.
 
-\subsection*{C.7 Recursive Attractor Definition and Variational Structure}
+\subsection*{Recursive Attractor Definition and Variational Structure}
 \label{appendix:C7}
 
 We define the recursive attractor state \( \Psi^*(\phi) \) as the fixed point of the filtered transition kernel:
@@ -259,7 +259,7 @@ where:
   \item \( \mathcal{F}_C(\phi, \phi') \): Gaussian coherence filter defined in Appendix~C.4.
 \end{itemize}
 
-\subsubsection*{C.7.1 Variational Principle}
+\subsubsection*{Variational Principle}
 
 The attractor can also be characterized as the minimizer of a coherence-weighted entropy functional:
 \begin{equation}
@@ -272,7 +272,7 @@ subject to normalization \( \langle \Psi | \Psi \rangle = 1 \), where:
   \item \( |\langle \Psi | \Psi_{n-1} \rangle|^2 \): memory fidelity from the prior cycle.
 \end{itemize}
 
-\subsubsection*{C.7.2 Interpretation}
+\subsubsection*{Interpretation}
 
 The attractor satisfies three joint constraints:
 \begin{enumerate}
@@ -283,7 +283,7 @@ The attractor satisfies three joint constraints:
 
 These conditions define \( \Psi^*(\phi) \) as a self-consistent recursive eigenstate stabilizing quantum memory across cycles.
 
-\subsubsection*{C.7.3 Numerical Realization}
+\subsubsection*{Numerical Realization}
 
 The attractor is computed iteratively via:
 \begin{align}
@@ -293,7 +293,7 @@ D_n &= \| \Psi_{n+1} - \Psi_n \|_{L^2} \to 0.
 \end{align}
 
 Convergence is guaranteed by the contraction property of \( K_{\text{norm}} \) (see Appendix~C.9). The resulting attractor defines a coherent fixed point of recursive cosmological evolution.
-\subsection*{C.8 Thermodynamic Variational Constraint and Entropic Compensation}
+\subsection*{Thermodynamic Variational Constraint and Entropic Compensation}
 \label{appendix:C8}
 
 We impose a new variational constraint motivated by thermodynamic consistency:
@@ -317,12 +317,12 @@ We interpret \( \lambda_T \) as a thermodynamic tension coupling, related to max
 Supernovae are modeled as coherence rupture events, where excessive tension (information gain beyond threshold) causes string failure. The number of dimensions whose tension threshold is exceeded determines the type of collapse and radiative signature.
 
 This constraint will influence attractor convergence and kernel admissibility, and may yield observable signatures in late-time entropy gradients and gravitational wave backgrounds.
-\subsection*{C.9 Attractor Convergence Proof via Contraction Mapping}
+\subsection*{Attractor Convergence Proof via Contraction Mapping}
 \label{appendix:C9}
 
 We now prove that the recursive update equation for the attractor state \( \Psi^*(\phi) \) defines a contraction mapping on a suitable Hilbert space. This guarantees convergence from arbitrary initial states to a unique, stable attractor.
 
-\subsubsection*{C.9.1 Recursive Operator Definition}
+\subsubsection*{Recursive Operator Definition}
 
 Let the recursive update operator be:
 \begin{equation}
@@ -343,7 +343,7 @@ where:
     \item \( \mathcal{F}_C(\phi, \phi') \): Gaussian filter in configuration space.
 \end{itemize}
 
-\subsubsection*{C.9.2 Function Space and Norm}
+\subsubsection*{Function Space and Norm}
 
 Let \( \mathcal{H} = L^2(\mathcal{C}) \) denote the Hilbert space of square-integrable functions over configuration space \( \mathcal{C} \), with norm:
 \begin{equation}
@@ -354,7 +354,7 @@ We aim to show that \( \mathcal{T} \) is a strict contraction:
 \exists \, \gamma \in (0,1) \quad \text{such that} \quad \|\mathcal{T}[\Psi_1] - \mathcal{T}[\Psi_2]\| \leq \gamma \|\Psi_1 - \Psi_2\|.
 \end{equation}
 
-\subsubsection*{C.9.3 Proof of Contraction}
+\subsubsection*{Proof of Contraction}
 
 Let \( \Delta \Psi := \Psi_1 - \Psi_2 \). We have:
 \begin{align}
@@ -383,7 +383,7 @@ Therefore:
 \end{equation}
 and \( \mathcal{T} \) is a contraction on \( \mathcal{H} \).
 
-\subsubsection*{C.9.4 Conclusion}
+\subsubsection*{Conclusion}
 
 By the Banach fixed point theorem, the operator \( \mathcal{T} \) has a unique fixed point \( \Psi^*(\phi) \in \mathcal{H} \), and any initial state \( \Psi_0 \in \mathcal{H} \) converges under recursive iteration:
 \[

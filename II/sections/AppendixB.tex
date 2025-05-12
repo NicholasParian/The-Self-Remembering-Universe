@@ -1,0 +1,97 @@
+\section*{Appendix B\\Recursive Lagrangian Structure and Field Dynamics}
+\addcontentsline{toc}{section}{Appendix B: Recursive Lagrangian Structure and Field Dynamics}
+\label{appendix:B}
+
+\subsection*{B.1 Total Action Decomposition}
+
+The recursive action per cycle is defined as:
+\[
+\mathcal{A}_n[\phi] = \int_{\Sigma_n} \left( 
+\mathcal{L}_{\text{EH}} + 
+\mathcal{L}_{\text{YM}} + 
+\mathcal{L}_{\text{scalar}} + 
+\mathcal{L}_{\text{int}} + 
+\mathcal{L}_{\text{obs}} + 
+\mathcal{L}_{\text{ent}} 
+\right) \, d^4x,
+\]
+where each term corresponds to a physical component within the recursive structure:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item $\mathcal{L}_{\text{EH}}$: Einstein–Hilbert term for gravitational curvature:
+  \[
+  \mathcal{L}_{\text{EH}} = \frac{1}{2\kappa} R,
+  \quad \text{with } \kappa = 8\pi G.
+  \]
+  
+  \item $\mathcal{L}_{\text{YM}}$: Gauge field term with coherence-modulated couplings:
+  \[
+  \mathcal{L}_{\text{YM}} = -\frac{1}{4} \sum_a \left( g_n^{(a)} \right)^{-2} F_{\mu\nu}^{(a)} F^{\mu\nu}_{(a)},
+  \]
+  where $g_n^{(a)} = f^{(a)}(\lambda_n, E_n, \gamma_n)$ reflects cycle-dependent coherence structure.
+
+  \item $\mathcal{L}_{\text{scalar}}$: Scalar field evolution with attractor-modulated potential:
+  \[
+  \mathcal{L}_{\text{scalar}} = \frac{1}{2} g^{\mu\nu} \partial_\mu \varphi \partial_\nu \varphi - V(\varphi, \lambda_n).
+  \]
+
+  \item $\mathcal{L}_{\text{int}}$: Interaction term coupling scalar fields to internal symmetry:
+  \[
+  \mathcal{L}_{\text{int}} = \sum_i \xi_n \cdot \varphi \cdot \partial_\mu \gamma^i,
+  \]
+  where $\gamma^i$ are toroidally compactified internal symmetry coordinates.
+
+  \item $\mathcal{L}_{\text{obs}}$: Observer-coupling and decoherence regulator:
+  \[
+  \mathcal{L}_{\text{obs}} = \lambda_O \cdot O^{\mu\nu} \nabla_\mu \phi \nabla_\nu \phi - \xi_n \cdot S_{\text{ent}}(\rho_{\text{red}}).
+  \]
+
+  \item $\mathcal{L}_{\text{ent}}$: Recursive entropy penalty:
+  \[
+  \mathcal{L}_{\text{ent}} = -\lambda_S \cdot S_{\text{rel}}(\rho_{\phi_n} \| \rho_{\phi_{n-1}}),
+  \]
+  where $S_{\text{rel}}$ is the quantum relative entropy.
+\end{itemize}
+
+\subsection*{B.2 Recursive Evolution and Filtering Constraint}
+
+Recursive evolution of the configuration field is filtered through attractor-aligned updates:
+\[
+\phi_{n+1} = \phi_n \oplus \delta \phi_n,
+\quad \text{subject to} \quad \delta \phi_n \in \text{Im}(\mathcal{P}_{G_{\text{coh}}}).
+\]
+The variation of the action is constrained accordingly:
+\[
+\delta \mathcal{A}_n[\phi] = 0 \quad \text{with} \quad \delta \phi_n \in \mathfrak{g}_{\text{coh}}.
+\]
+This ensures that the Euler–Lagrange equations reflect coherence-preserving dynamics only.
+
+\subsection*{B.3 Attractor Stability and Potential Landscape}
+
+The attractor \( \Psi^*(\phi) \) defines a fixed point of recursive evolution. Its stability is analyzed via the configuration-space Hessian:
+\[
+\mathcal{H}_{ij} = \frac{\partial^2 \mathcal{A}_n}{\partial \phi^i \partial \phi^j} \Bigg|_{\phi = \Psi^*(\phi)}.
+\]
+Lyapunov stability requires:
+\[
+\mathcal{H} \succeq 0 \quad \text{on} \quad \mathcal{P}_{G_{\text{coh}}}(\mathcal{C}_n),
+\]
+ensuring that evolution converges toward rather than diverges from memory-aligned attractor states.
+
+\subsection*{B.4 Thermodynamic Enforcement}
+
+All recursive transitions are regulated by entropy bounds and tension constraints:
+\[
+\mathcal{A}_n \text{ minimized under:} \quad 
+\Delta S_{\text{fwd}} = \Delta S_{\text{mem}}, 
+\quad \kappa_n \leq \kappa_C,
+\]
+with:
+\[
+\kappa_n = \frac{I(\phi_n, \phi_{n-1})}{\lambda_n}.
+\]
+This formalizes a dual thermodynamic–coherence constraint on evolution.
+
+\subsection*{B.5 Summary}
+
+Appendix B formalizes the Lagrangian components of recursive evolution, showing how gravitational, gauge, scalar, and observer fields are interwoven into a single attractor-constrained variational structure. All dynamics are filtered through entropy penalties, coherence conditions, and symmetry-aligned memory inheritance.

@@ -1,0 +1,124 @@
+\section*{Appendix C\\Recursive Kernel Implementation and Attractor Derivation}
+\addcontentsline{toc}{section}{Appendix C: Recursive Kernel Implementation and Attractor Derivation}
+\label{appendix:C}
+
+\subsection*{C.1 Recursive Configuration Space}
+
+The full recursive configuration vector is:
+\[
+\phi_n = (a_n, \varphi_n, \lambda_n, E_n, \gamma_n, \xi_n),
+\]
+with each component defined as:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \( a_n \): discrete scale factor (from LQC bounce dynamics),
+  \item \( \varphi_n \): scalar field value(s),
+  \item \( \lambda_n \): memory fidelity (overlap between cycles),
+  \item \( E_n \): entanglement eigenvalue across the ERB,
+  \item \( \gamma_n \): toroidal internal symmetry coordinates,
+  \item \( \xi_n \): observer resolution scale modulating decoherence.
+\end{itemize}
+
+The configuration space \( \mathcal{C}_n \subset \mathbb{R}^4 \times T^2 \) includes both real-valued physical fields and compactified toroidal variables.
+
+\subsection*{C.2 Transition Kernel Structure}
+
+The transition kernel \( K(\phi, \phi') \) defines the weighted amplitude for transition between recursive states:
+\[
+K(\phi, \phi') = \mathcal{A}_{\text{geom}}(\phi, \phi') \cdot \mathcal{F}_{\text{coh}}(\phi, \phi') \cdot e^{-S_{\text{rel}}(\rho_\phi \| \rho_{\phi'})}.
+\]
+
+Where:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \( \mathcal{A}_{\text{geom}} \): geometric propagator from spinfoam amplitudes (large spin limit),
+  \item \( \mathcal{F}_{\text{coh}} \): Gaussian coherence filter:
+  \[
+  \mathcal{F}_{\text{coh}} = \exp\left( 
+    -\frac{(a - a')^2}{2\sigma_a^2}
+    -\frac{(\varphi - \varphi')^2}{2\sigma_\varphi^2}
+    -\frac{(E - E')^2}{2\sigma_E^2}
+    -\frac{d_T^2(\gamma, \gamma')}{2\sigma_\gamma^2}
+  \right),
+  \]
+  with \( d_T^2 \) denoting geodesic distance on the torus.
+
+  \item \( S_{\text{rel}} \): relative entropy penalty encoding memory divergence.
+\end{itemize}
+
+\subsection*{C.3 Recursive Update Equation}
+
+The recursive state update is defined by:
+\[
+\Psi_{n+1}(\phi) = \int K(\phi, \phi') \, \Psi_n(\phi') \, d\phi',
+\]
+with normalized kernel:
+\[
+K_{\text{norm}}(\phi, \phi') = \frac{K(\phi, \phi')}{\int K(\phi, \phi') \, d\phi'}.
+\]
+This implements coherence-filtered propagation across recursive transitions.
+
+\subsection*{C.4 Attractor Derivation}
+
+The fixed-point attractor \( \Psi^*(\phi) \) satisfies:
+\[
+\Psi^*(\phi) = \int K_{\text{norm}}(\phi, \phi') \Psi^*(\phi') \, d\phi',
+\]
+and is derived as the minimum of the coherence-weighted action functional:
+\[
+\Psi^* = \arg\min_{\Psi} \left\{
+\lambda_S S(\rho_\Psi)
++ \lambda_T \lambda^2
+- \lambda_C |\langle \Psi | \Psi_{n-1} \rangle|^2
+\right\}.
+\]
+Convergence is guaranteed under contraction mapping on the Hilbert space \( \mathcal{H}_\phi \), provided entropy and fidelity constraints are enforced.
+
+\subsection*{C.5 Numerical Implementation Strategy}
+
+Simulation proceeds by:
+
+\begin{enumerate}[leftmargin=1.5em]
+  \item Initializing \( \Psi_0(\phi) \) with observational or analytical priors.
+  \item Updating via recursive convolution:
+  \[
+  \Psi_{n+1} = K_{\text{norm}} \star \Psi_n.
+  \]
+  \item Tracking convergence via:
+  \[
+  \lambda_n = |\langle \Psi_n | \Psi_{n-1} \rangle|^2, \quad 
+  \mathcal{L}_n = \log \left( \frac{\|\Psi_{n+1} - \Psi_n\|}{\|\Psi_n - \Psi_{n-1}\|} \right).
+  \]
+  \item Enforcing entropy constraint:
+  \[
+  \Delta S_n = S(\rho_{n+1}) - S(\rho_n) \leq \epsilon.
+  \]
+\end{enumerate}
+
+\subsection*{C.6 Entropy Compensation Condition}
+
+Recursive evolution satisfies:
+\[
+\Delta S_{\text{fwd}} + \Delta S_{\text{rad}} = \Delta S_{\text{exp}},
+\]
+where:
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \( \Delta S_{\text{fwd}} \): entropy from memory gain,
+  \item \( \Delta S_{\text{rad}} \): radiative entropy (e.g., Hawking flux),
+  \item \( \Delta S_{\text{exp}} \): dilution entropy from expansion.
+\end{itemize}
+
+This enforces thermodynamic balance at each bounce.
+
+\subsection*{C.7 Convergence Criteria}
+
+We define attractor convergence by:
+\[
+\lambda_n \to 1, \quad 
+\Delta S_n < \epsilon, \quad 
+\|\Psi_{n+1} - \Psi_n\| \to 0.
+\]
+
+These thresholds regulate recursion, ensuring dynamical coherence, bounded entropy, and memory stability.
+

@@ -1,0 +1,75 @@
+\section*{Appendix A\\Recursive Symmetry and Attractor Constraints}
+\addcontentsline{toc}{section}{Appendix A: Recursive Symmetry and Attractor Constraints}
+\label{appendix:A}
+
+\subsection*{A.1 Configuration Space and Symmetry Embedding}
+
+We define the recursive configuration space as:
+\[
+\mathcal{C}_n = \mathbb{T}^6 = \text{Tor}(a_n) \times \text{Tor}(\varphi_n) \times \text{Tor}(\lambda_n) \times \text{Tor}(E_n) \times \text{Tor}(\gamma_n) \times \text{Tor}(\xi_n),
+\]
+where each degree of freedom evolves over a compact dimension with phase continuity. These toroidal embeddings allow recursive coherence and phase-filtered interference patterns across cycles without divergence.
+
+Symmetry transformations are elements of a bounded transformation algebra \( \mathfrak{T} \), acting on \( \mathcal{C}_n \). Physical transitions are not arbitrary—they must preserve recursive alignment with the attractor \( \Psi^*(\phi) \). We define a coherence-preserving subset:
+\[
+G_{\text{coh}} \subset \text{Aut}(\mathcal{C}_n),
+\]
+where \( G_{\text{coh}} \) includes only those transformations that conserve entropy bounds, entanglement alignment, and observer resolution thresholds.
+
+\subsection*{A.2 Attractor-Preserving Projection Operators}
+
+We introduce a projection operator \( \mathcal{P}_{G_{\text{coh}}} \) that enforces attractor-preserving transformations:
+\[
+\mathcal{P}_{G_{\text{coh}}}[\delta \phi_n] := 
+\begin{cases}
+\delta \phi_n & \text{if } \delta \phi_n \in G_{\text{coh}}, \\
+0 & \text{otherwise}.
+\end{cases}
+\]
+This operator appears explicitly in the recursive action as a filter on legal transitions. It replaces arbitrary diffeomorphisms with attractor-conditioned pathways:
+\[
+\delta \mathcal{A}_n[\phi] = 0 \quad \text{subject to} \quad \delta \phi_n \in \text{Im}(\mathcal{P}_{G_{\text{coh}}}).
+\]
+
+\subsection*{A.3 Symmetry Filtering in the Transition Kernel}
+
+The recursive kernel is defined by a coherence-weighted sum over attractor-aligned paths:
+\[
+K(\phi, \phi') = \sum_{\delta \phi \in G_{\text{coh}}} \mathcal{A}_{\delta \phi}(\phi, \phi') \cdot e^{-S_{\text{rel}}(\rho_\phi \| \rho_{\phi'})},
+\]
+where:
+\begin{itemize}
+  \item \( \mathcal{A}_{\delta \phi} \): amplitude for each transition,
+  \item \( S_{\text{rel}} \): quantum relative entropy, penalizing misaligned transitions.
+\end{itemize}
+
+Transformations not in \( G_{\text{coh}} \) are exponentially suppressed:
+\[
+\mathcal{A}_{\delta \phi} \sim 0 \quad \text{if } \delta \phi \notin G_{\text{coh}}.
+\]
+This ensures recursive evolution flows only through the attractor’s stability basin.
+
+\subsection*{A.4 Observer-Dependent Resolution Filtering}
+
+Let \( \mathcal{P}_\xi \) denote a resolution-limited projection operator:
+\[
+\mathcal{P}_\xi[\rho] = \sum_{i \in \mathcal{B}_\xi} \ket{i}\bra{i} \rho \ket{i}\bra{i},
+\]
+where \( \mathcal{B}_\xi \) is a coarse-grained basis determined by observer resolution \( \xi \). This operator enforces decoherence filtering and constrains which components of the configuration space contribute to physical observables.
+
+The recursive state update becomes:
+\[
+\rho \to \mathcal{P}_\xi \circ \mathcal{P}_{G_{\text{coh}}}[\rho],
+\]
+integrating both intrinsic symmetry and extrinsic observational constraints.
+
+\subsection*{A.5 Summary}
+
+This appendix formalizes how recursive evolution is shaped by coherence-preserving symmetry filtering in a compactified configuration space. Transformations are constrained by:
+\begin{itemize}
+  \item Alignment with the attractor \( \Psi^*(\phi) \),
+  \item Entropy conservation and coherence fidelity,
+  \item Observer-limited projection via resolution index \( \xi_n \).
+\end{itemize}
+
+This structure defines a recursive geometric logic for allowable transitions, enforcing that only memory-aligned, entropically admissible transformations survive the evolution across cosmological cycles.

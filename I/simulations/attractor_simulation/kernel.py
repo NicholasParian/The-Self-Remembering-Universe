@@ -16,7 +16,12 @@ def gaussian_kernel(phi, phi_prime, sigma):
     - float: Gaussian weighting factor
     """
     delta = phi - phi_prime
-    exponent = -0.5 * np.sum((delta / sigma) ** 2)
+    z = delta / np.maximum(sigma, 1e-6)
+    exponent = -0.5 * np.sum(z ** 2)
+
+    # Avoid wasting cycles on near-zero values
+    if exponent < -100:
+        return 0.0
     return np.exp(exponent)
 
 def entropy_penalty(S_phi, S_phi_prime, lambda_E):

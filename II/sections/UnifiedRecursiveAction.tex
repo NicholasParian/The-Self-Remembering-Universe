@@ -1,0 +1,52 @@
+\section{Unified Recursive Action}
+
+\subsection{Extended Lagrangian Formalism}
+
+We construct a recursive action functional
+\[
+\mathcal{A}_n[\phi] = \int_{\Sigma_n} \left( \mathcal{L}_{\text{EH}} + \mathcal{L}_{\text{YM}} + \mathcal{L}_{\text{scalar}} + \mathcal{L}_{\text{int}} + \mathcal{L}_{\text{obs}} \right) \, \mathrm{d}^4 x,
+\]
+defined over a 4-dimensional spatial slice $\Sigma_n$ of the full 12-dimensional recursive manifold $\mathcal{M}^{(12)}$. The Lagrangian components include:
+
+- $\mathcal{L}_{\text{EH}}$: Einstein–Hilbert term governing curvature dynamics~\cite{peskin1995introduction},
+- $\mathcal{L}_{\text{YM}}$: Yang–Mills term for gauge field interactions,
+- $\mathcal{L}_{\text{scalar}}$: Kinetic and potential terms for scalar fields (e.g., inflaton, Higgs),
+- $\mathcal{L}_{\text{int}}$: Memory-modulated interaction terms,
+- $\mathcal{L}_{\text{obs}}$: Observer coupling terms regulating decoherence~\cite{zurek2003decoherence, nielsen2010quantum}.
+
+Recursive transitions are filtered by a coherence-preserving transformation:
+\[
+\phi_{n+1} = \phi_n \oplus \delta \phi_n,
+\quad \text{with} \quad \delta \phi_n \in \mathfrak{g}_{\text{coh}} \subset \mathrm{Aut}(\mathcal{C}_n),
+\]
+where $\oplus$ denotes a coherence-weighted recursive update, and $\mathfrak{g}_{\text{coh}}$ defines the algebra of allowable transformations preserving alignment with the recursive attractor $\Psi^*(\phi)$.
+
+\subsection{Integration of Gravity and Gauge Fields}
+
+We interpret gravity and gauge forces as emerging from distinct sectors within the recursive symmetry group. The total field strength tensor is given by:
+\[
+\mathcal{F}_{\mu\nu} = R_{\mu\nu} + F_{\mu\nu}^{(a)} + D_{\mu\nu}^{(\gamma)},
+\]
+where:
+- $R_{\mu\nu}$ is the Ricci tensor from $\mathcal{L}_{\text{EH}}$,
+- $F_{\mu\nu}^{(a)}$ arises from the gauge fields in $\mathcal{L}_{\text{YM}}$,
+- $D_{\mu\nu}^{(\gamma)}$ captures curvature-like contributions from internal symmetry orientation $\gamma_n$ in the compactified sector.
+
+The coherence structure induces an effective potential penalizing symmetry misalignment:
+\[
+V_{\text{misalign}}(\phi) = \lambda_C \cdot \mathrm{Tr} \left[ \left( \mathbb{I} - \mathcal{P}_{\text{coh}} \right) \delta \phi_n \right]^2,
+\]
+where $\mathcal{P}_{\text{coh}}$ projects onto the attractor-aligned configuration subspace. This term dynamically steers the system toward transformations preserving memory coherence.
+
+\subsection{Observer Coupling and Entanglement Flow}
+
+We incorporate the observer entanglement tensor $O^{\mu\nu}$ using the term:
+\[
+\mathcal{L}_{\text{obs}} = \lambda_O \cdot \mathrm{Tr} \left( O^{\mu\nu} \nabla_\mu \phi \nabla_\nu \phi \right) - \xi_n \cdot S_{\text{ent}}(\rho_{\text{red}}),
+\]
+where:
+- $\lambda_O$ is the observer coupling strength,
+- $\xi_n$ is the observer resolution index controlling decoherence granularity,
+- $S_{\text{ent}}(\rho_{\text{red}})$ is the von Neumann entropy across the ER bridge~\cite{maldacena2013cool}.
+
+The observer is not external but embedded as a resolution-sensitive filtering structure that directly modifies configuration evolution. This formalizes the role of measurement within recursive field dynamics and ensures consistency with entanglement-based memory propagation.

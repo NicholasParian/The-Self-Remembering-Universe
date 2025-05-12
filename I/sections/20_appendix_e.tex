@@ -2,107 +2,101 @@
 \addcontentsline{toc}{section}{Appendix E: Critical Issues and Proposed Resolutions}
 \label{appendix:E}
 
-\subsection*{E.1 Transition Kernel $K(\phi, \phi')$}
+\subsection*{Transition Kernel $K(\phi, \phi')$}
 
-\textbf{Issue 1: First-Principles Derivation from Spinfoam Dynamics}
-
-The current spin-sum formulation:
-\[
-K(\phi, \phi') = \sum_{j_f} \prod_f (2j_f+1) e^{-j_f(j_f+1)/2j_0^2} \times \text{Gaussian}
-\]
-lacks derivation from the full EPRL spinfoam structure.
+\textbf{Issue 1: Lack of first-principles derivation from full spinfoam dynamics.}
 
 \textit{Resolution:}  
-Anchor the derivation in large-spin asymptotics:
+Anchor the derivation in the large-spin asymptotics of the EPRL model:
 \[
 A_v(j_f, \iota_v) \sim N_v e^{i S_{\text{Regge}}} + \text{decay terms}
 \]
 \[
 K(\phi, \phi') \sim \sum_{j_f} \mu(j_f) \, e^{i S_{\text{eff}}(\phi, \phi'; j_f)}
 \]
-with \( \mu(j_f) \sim (2j_f+1) \) and saddle-point structure. The Gaussian suppression term arises from filtering near \( j_0 \sim A_{\text{throat}} / 8\pi\gamma\ell_P^2 \).
+with \( \mu(j_f) \sim (2j_f+1) \), and a saddle-point structure. The Gaussian filtering term arises from proximity to the dominant spin scale \( j_0 \sim A_{\text{ERB}} / 8\pi\gamma\ell_P^2 \).
 
-\subsection*{E.2 Recursive Entropy Divergence and Fidelity Regularization}
+\subsection*{Recursive Entropy Divergence and Fidelity Regularization}
 
-\textbf{Issue: Entropy divergence when states become orthogonal.}
+\textbf{Issue: Divergence of entropy when states become orthogonal.}
 
 \textit{Resolution:}  
-Use quantum relative entropy:
+Replace log-fidelity divergence with quantum relative entropy:
 \[
 S_n = \frac{A_{n-1}}{4G\hbar} + \lambda_S \, S(\rho_n \| \rho_{n-1})
 \]
-This replaces the log-fidelity divergence and ensures monotonicity under CP maps.
+This ensures continuity and monotonicity under completely positive trace-preserving (CPTP) maps.
 
-\subsection*{E.3 Energy Transfer and Thermodynamic Consistency}
+\subsection*{Energy Transfer and Thermodynamic Consistency}
 
-\textbf{Issue: Heuristic energy transfer expression \( \Delta E \sim T_H \Delta S \)}
+\textbf{Issue: Heuristic formulation of inter-cycle energy flow.}
 
 \textit{Resolution:}  
-Apply Brown–York quasi-local energy:
+Apply the Brown–York quasi-local energy expression:
 \[
 E_{\text{BY}} = \int_S \sqrt{\sigma} \, T^{ab}_{\text{BY}} u_a \xi_b \, d^2x
 \]
-Yielding:
+Leading to the energy flux:
 \[
 \Delta E_n = \frac{\kappa \Delta A_n}{8\pi G} + T_H \Delta S_{\text{holo}} - \lambda_E I(\phi_n, \phi_{n-1})
 \]
 
-\subsection*{E.4 Attractor Convergence and Kernel Fixed Point}
+\subsection*{Attractor Convergence and Kernel Fixed Point}
 
-\textbf{Issue: Lack of proof of attractor convergence.}
+\textbf{Issue: No formal proof of attractor convergence.}
 
 \textit{Resolution:}  
-Simulate:
+Demonstrate numerical convergence:
 \[
 \Psi_{n+1}(\phi') = \int K(\phi, \phi') \Psi_n(\phi) \, d\phi
 \quad \Rightarrow \quad
 D_n = \|\Psi_{n+1} - \Psi_n\| \to 0
 \]
-Stability occurs when \( \mathcal{F}_n \geq \mathcal{F}_{\text{crit}} \).
+Stability is reached when the coherence fitness satisfies \( \mathcal{F}_n \geq \mathcal{F}_{\text{crit}} \). (See Appendix~C.9.)
 
-\subsection*{E.5 XOR Operator and Logical Interference}
+\subsection*{XOR Operator and Logical Interference}
 
-\textbf{Issue: Formal structure of recursive update \( \phi_{n+1} = \phi_{U1} \oplus \Psi_n \)}
+\textbf{Issue: Formal structure of recursive update \( \phi_{n+1} = \phi_{U1} \oplus \Psi_n \).}
 
 \textit{Resolution:}  
-Model as a controlled unitary gate:
+Model the interference as a controlled unitary gate:
 \[
 \hat{U}_\oplus = \exp[i\pi \hat{O}_{U1} \otimes \hat{P}_{\Psi_n}]
 \quad \Rightarrow \quad
 \Psi_{n+1} = \hat{U}_\oplus \left( |\phi_{U1}\rangle \otimes |\Psi_n\rangle \right)
 \]
 
-\subsection*{E.6 Tension–Entropy Equilibrium and String Breakage Thresholds}
+\subsection*{Tension–Entropy Equilibrium and String Breakage Thresholds}
 
-\textbf{Issue: Lack of formal mechanism for recursive instability and supernova events.}
+\textbf{Issue: Missing formalization of coherence rupture and supernova-type collapse.}
 
 \textit{Resolution:}  
-Introduce a Lagrange-constrained tension variable \( \lambda_n \) for the coherence string bundle:
+Introduce a Lagrange-constrained tension variable \( \lambda_n \) representing coherence stress:
 \[
 \delta \mathcal{A}_n + \lambda_C \delta(S_n - S_{\text{mem}}) + \lambda_T \delta(\mathcal{T}_n - \mathcal{T}_{\text{max}}) = 0
 \]
 where:
 \begin{itemize}
-  \item \( \mathcal{T}_n \): total coherence tension (string load),
-  \item \( \mathcal{T}_{\text{max}} \): critical threshold.
+  \item \( \mathcal{T}_n \): cumulative coherence tension across compactified dimensions,
+  \item \( \mathcal{T}_{\text{max}}^{(k)} \): dimension-indexed rupture threshold.
 \end{itemize}
 
 Supernova-type events occur when:
 \[
 \mathcal{T}_n \geq \mathcal{T}_{\text{max}}^{(k)}
 \]
-for some threshold indexed by \( k \), where \( k \) corresponds to the number of coherence strings (dimensions) lost. Falsifiable prediction:
+where each \( k \) corresponds to the number of coherence strings (dimensions) ruptured. Falsifiable signatures:
 \[
 \frac{d\mathcal{T}_n}{dI_n} > 0, \quad \frac{dS_n}{d\mathcal{T}_n} < 0
 \]
-This captures the condition: *information gain increases string tension; expansion lowers entropy*.
+capturing the thermodynamic law: \textit{Information gain increases string tension; expansion reduces entropy.}
 
-Hawking radiation is modeled as compensatory entropy flux:
+Entropy compensation from Hawking radiation:
 \[
 \Delta S_{\text{Hawking}} = -\Delta \mathcal{T}_n / \kappa_H
 \]
 
-\subsection*{E.7 Summary Table}
+\subsection*{Summary Table}
 
 \begin{table}[H]
 \centering
@@ -113,10 +107,10 @@ Hawking radiation is modeled as compensatory entropy flux:
 Kernel derivation & EPRL vertex asymptotics & First-principles spin-foam grounding \\
 Entropy divergence & Relative entropy & Avoids log-fidelity instability \\
 Energy transport & Brown–York tensor & Thermodynamic consistency \\
-Attractor proof & Numerical recursion & Formal fixed-point convergence \\
-XOR operation & Controlled unitary & Logical propagation of interference \\
-String breakage & Tension bound + entropy penalty & Mechanism for bounce instability and decoherence collapse \\
+Attractor proof & Numerical recursion & Fixed-point convergence guarantee \\
+XOR operation & Controlled unitary & Logical encoding of recursive interference \\
+String breakage & Tension bound with entropy constraint & Physical mechanism for recursive collapse \\
 \hline
 \end{tabular}
-\caption{Summary of theoretical issues and proposed resolutions}
+\caption{Summary of critical issues and proposed resolutions}
 \end{table}

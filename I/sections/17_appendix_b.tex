@@ -2,11 +2,11 @@
 \addcontentsline{toc}{section}{Appendix B: Single-Cycle Decoherence and Memory Kernel Dynamics}
 \label{appendix:B}
 
-\subsection*{B.1 Overview}
+\subsection*{Overview}
 
 Intra-cycle decoherence is modeled using a density matrix formalism \( \rho_n(t) \), which evolves under a non-Markovian master equation coupled to memory feedback. Each cycle begins with a configuration-weighted projection from the previous epoch, initialized through the transition kernel \( K(\phi, \phi') \) (defined in Appendix~\ref{appendix:C2}). The model captures how recursive coherence propagates within a single cycle before subsequent kernel updates.
 
-\subsection*{B.2 Recursive Kernel Initialization}
+\subsection*{Recursive Kernel Initialization}
 
 The initial state of cycle \( n \) is defined as:
 \[
@@ -26,7 +26,7 @@ The filter:
 \]
 selects aligned configurations in geometry, field amplitude, and entanglement energy. The phase term \( S_{\text{ERB}} \) is the entropic bridge action (Appendix~C.3).
 
-\subsection*{B.3 Non-Markovian Decoherence Dynamics}
+\subsection*{Non-Markovian Decoherence Dynamics}
 
 The system evolves via:
 \[
@@ -40,7 +40,7 @@ where:
 \end{itemize}
 This form captures decoherence induced by gravitational degrees of freedom within each minisuperspace slice.
 
-\subsection*{B.4 Entropy-Modulated Memory Kernel}
+\subsection*{Entropy-Modulated Memory Kernel}
 
 The kernel \( D(\tau) \) evolves dynamically based on the entropy:
 \[
@@ -63,7 +63,7 @@ Here, \( S_{\text{max}} \) is a cycle-specific entropy bound derived from geomet
   \item Spectral coherence tied to spin-quantized LQG structure.
 \end{itemize}
 
-\subsection*{B.5 Numerical Priorities and Observables}
+\subsection*{Numerical Priorities and Observables}
 
 Key computational targets for each cycle \( n \):
 

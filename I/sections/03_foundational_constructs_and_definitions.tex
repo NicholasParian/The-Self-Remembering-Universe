@@ -13,7 +13,7 @@ evolves the universe across cycles using a configuration space \( \phi = (a, \va
     \item \( E \): entanglement eigenvalue, \( E := \sqrt{S(\rho_{\text{red}})} \).
 \end{itemize}
 
-\subsection{3.1 Quantum Constructs}
+\subsection{Quantum Constructs}
 \label{subsec:quantum-constructs}
 
 \begin{table}[H]
@@ -34,18 +34,20 @@ evolves the universe across cycles using a configuration space \( \phi = (a, \va
 \addlinespace
 \( \hat{O} \) & Observable coupling to curvature & Defines decoherence operator \\
 \addlinespace
-\( \lambda_n \) & Maximum string tension & Constraint enforcing geometric coherence stability \\
+\( \lambda_n \) & Coherence tension / fidelity eigenvalue\textsuperscript{*} & Constraint on information flow and recursive stability \\
 \bottomrule
 \end{tabular}
 \caption{Quantum constructs governing recursive evolution}
 \end{table}
 
-\subsection{3.2 Geometric Variables}
+\noindent\textsuperscript{*}\footnotesize{\( \lambda_n \) appears both as a dynamical observable (fidelity between attractors) and as a constraint regulating string tension and coherence stress.}
+
+\subsection{Geometric Variables}
 \label{subsec:geometry}
 
 [No changes needed.]
 
-\subsection{3.3 Thermodynamic Constructs}
+\subsection{Thermodynamic Constructs}
 \label{subsec:thermodynamic}
 
 \begin{table}[H]
@@ -62,7 +64,7 @@ evolves the universe across cycles using a configuration space \( \phi = (a, \va
 \addlinespace
 \( S_{\text{ent}}(\phi_k) \) & Entropy penalty term & Used in recursive action \(\mathcal{A}_n\) \\
 \addlinespace
-\( \lambda_n \) & String tension (max coherence stress) & Collapse threshold; governs entropy divergence and supernova trigger \\
+\( \lambda_n \) & Tension regulating coherence stress & Increases with information gain; collapse occurs if \( \lambda_n > \lambda_{\text{crit}} \) \\
 \addlinespace
 \( \dot{S}_{\text{rad}} \) & Hawking radiation entropy rate & Thermodynamic counterbalance to tension-induced entropy loss \\
 \bottomrule
@@ -70,26 +72,26 @@ evolves the universe across cycles using a configuration space \( \phi = (a, \va
 \caption{Thermodynamic constructs in entropy regulation}
 \end{table}
 
-\subsection{3.4 Informational Constructs}
+\subsection{Informational Constructs}
 \label{subsec:info-constructs}
 
 [No changes needed.]
 
-\subsection{3.5 Recursive Geometry Axioms}
+\subsection{Recursive Geometry Axioms}
 \label{subsec:axioms}
 
 \begin{enumerate}
     \item \textbf{Time-symmetric recursion:} \( \Psi_{n+1} \) and \( \Psi_{n-1} \) evolve via the same kernel \( K(\phi, \phi') \).
-    \item \textbf{Entropy--coherence constraint:} \( \Delta S_{\text{fwd}} = \Delta S_{\text{mem}} \) must hold across each transition.
-    \item \textbf{Minimal area threshold:} \( A(\phi, \phi') \geq \ell_{\text{Pl}}^2 \) ensures geometric stability.
-    \item \textbf{String tension collapse constraint:} If \( \lambda_n > \lambda_{\text{max}} \), coherence fails and recursive collapse occurs.
+    \item \textbf{Entropy--coherence constraint:} Entropy flow into future states must match memory-preserving entropy: \( \Delta S_{\text{fwd}} = \Delta S_{\text{mem}} \).
+    \item \textbf{Minimal area threshold:} \( A(\phi, \phi') \geq \ell_{\text{Pl}}^2 \) ensures geometric stability across recursive bridges.
+    \item \textbf{String tension collapse constraint:} If \( \lambda_n > \lambda_{\text{crit}} \), coherence fails and a recursive collapse or rupture is triggered.
 \end{enumerate}
 
-\subsection{3.6 Configuration Space Summary}
+\subsection{Configuration Space Summary}
 
 [No changes needed.]
 
-\subsection{3.7 Tabular Reference Summary}
+\subsection{Tabular Reference Summary}
 \label{subsec:reference-table}
 
 \begin{table}[H]
@@ -102,8 +104,9 @@ evolves the universe across cycles using a configuration space \( \phi = (a, \va
 \( K(\phi, \phi') \) & Transition kernel \\
 \( a \) & Scale factor \\
 \( \varphi \) & Scalar field \\
-\( \lambda \) & Memory fidelity (state overlap) \\
+\( \lambda \) & Memory fidelity / string tension \\
 \( E \) & Entanglement eigenvalue (memory saturation) \\
+\( \rho_{\text{red}} \) & Reduced density matrix across ER bridge \\
 \( S_n \) & Recursive entropy \\
 \( D(\tau, E) \) & Memory kernel (decoherence delay) \\
 \hline
