@@ -39,17 +39,17 @@ summarize:
 	@echo "Summarizing stress test results..."
 	python3 summarize_stress_test.py
 	
-stress-test-extreem-1:
+stress-test-extreme-1:
 	@echo "Summarizing stress test results..."
-	python3 run_stress_test_extreem_1.py
+	python3 run_stress_test_extreme_1.py
 
-stress-test-extreem-2:
+stress-test-extreme-2:
 	@echo "Summarizing stress test results..."
-	python3 run_stress_test_extreem_2.py
+	python3 run_stress_test_extreme_2.py
 	
-stress-test-extreem-3:
+stress-test-extreme-3:
 	@echo "Summarizing stress test results..."
-	python3 run_stress_test_extreem_3.py
+	python3 run_stress_test_extreme_3.py
 
 convergence_collapse_scan:
 	@echo "convergence_collapse_scan..."
