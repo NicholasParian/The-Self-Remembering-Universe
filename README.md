@@ -33,6 +33,13 @@ All code, documents, and materials are released under the MIT License unless oth
 
 **Nicholas Parian**  
 Lead Author and Architect of the Recursive Coherence Framework  
-[contact details or GitHub profile if you want to include]
+
+## Disclosures
+Portions of this manuscript—including the development, refinement, formatting of mathematical expressions, narrative structure, and citation management—were produced in collaboration with OpenAI's GPT-4 model (ChatGPT), Google's Gemini 2.0, and DeepSeek R1. The human author, Nicholas Parian, guided the conceptual framework, directed the line of inquiry, posed the core hypotheses, and curated the final scientific content.
+
+The use of artificial intelligence was instrumental in accelerating the writing, organizing technical arguments, and cross-referencing related literature. However, all original theoretical contributions, interpretations, and decisions regarding inclusion, emphasis, and framing were made by the human author.
+
+This disclosure is provided in the interest of transparency and to acknowledge the evolving role of large language models in academic research and writing. The author assumes full responsibility for the accuracy, novelty, and scientific validity of the material presented.
+
 
 
